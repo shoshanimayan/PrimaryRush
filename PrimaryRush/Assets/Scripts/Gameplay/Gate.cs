@@ -13,6 +13,7 @@ public class Gate : Block
     void Start()
     {
         textures = Resources.LoadAll<Sprite>("Textures");
+
         int temp;
         if (info.score < textures.Length)
             temp = 6;

@@ -21,6 +21,14 @@ public class Player : MonoBehaviour
     private GameHandler info { get { return GameHandler.instance; } }
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        info.slowed = false;
+        info.topSpeed = 10;
+        info.score = 0;
+        info.slowSpeed = 1;
+        info.speedbar = 100f;
+    }
     void Start()
     {
         combo = 0;
@@ -67,7 +75,7 @@ public class Player : MonoBehaviour
     private void Die() {
         info.topSpeed = 0;
         info.slowSpeed = 0;
-        Destroy(this);
+        Destroy(gameObject);
     }
 
 
@@ -101,6 +109,8 @@ public class Player : MonoBehaviour
         }
         else {
             Gate gate = collision.gameObject.GetComponent<Gate>();
+            Debug.Log(gate.GetNumber());
+
             if (combo == gate.GetNumber())
             {
                 AddCombo();
