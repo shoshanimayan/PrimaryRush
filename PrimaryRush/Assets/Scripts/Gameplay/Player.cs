@@ -109,8 +109,6 @@ public class Player : MonoBehaviour
         }
         else {
             Gate gate = collision.gameObject.GetComponent<Gate>();
-            Debug.Log(gate.GetNumber());
-
             if (combo == gate.GetNumber())
             {
                 AddCombo();
