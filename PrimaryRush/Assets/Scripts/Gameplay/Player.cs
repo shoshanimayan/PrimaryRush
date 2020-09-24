@@ -2,27 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     /// <summary>
     /// todo
-    /// player input
-    /// speed change
-    /// hookup to ui
+    /// slow down
     /// Update color function
-    /// 
+    /// trigger end menu in uihandler
     /// </summary>
+    //info vars
     public enum Color {Blue,Red,Yellow }
     public Color color;
     public int combo ;
     public float timer;
-    private Canvas end;
+
+    //input
+    private float ScreenWidth;
+    public float speed = 1;
+
+    //ui
+    public TMP_Text comboUI;
+    //12.26
     private GameHandler info { get { return GameHandler.instance; } }
 
     // Start is called before the first frame update
     private void Awake()
     {
+        comboUI.text = "0";
         info.slowed = false;
         info.topSpeed = 10;
         info.score = 0;
@@ -34,6 +42,14 @@ public class Player : MonoBehaviour
         combo = 0;
         timer = 0;
         color = GetRandomEnum<Color>();
+        ScreenWidth = Screen.width;
+
+    }
+    /// <summary>
+    /// update the Combo UI text to equal combo var
+    /// </summary>
+    private void UpdateComboUI() {
+        comboUI.text = combo.ToString();
     }
 
     /// <summary>
@@ -62,13 +78,71 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //loop over every touch found
+#if UNITY_IOS	|| UNITY_ANDROID	
+        if (Input.touchCount == 1)
+        {
+            if (Input.GetTouch(0).position.x > ScreenWidth / 2)
+            {
+                if (transform.position.x < 12.26f)
+                {
+                    
+                    transform.position += Vector3.right * Time.deltaTime * speed;
+
+                }
+                //move right
+            }
+            if (Input.GetTouch(0).position.x < ScreenWidth / 2)
+            {
+                if (transform.position.x > -12.26)
+                {
+
+                    transform.position += Vector3.left * Time.deltaTime * speed;
+
+                }
+                //move left
+            }
+        }
+#endif
+#if UNITY_EDITOR || UNITY_STANDALONE
+        if (Input.GetMouseButton(0))
+        {
+            
+            if (Input.mousePosition.x > ScreenWidth / 2)
+            {
+
+                if (transform.position.x < 12.26f)
+                {
+                    
+                    transform.position += Vector3.right * Time.deltaTime * speed;
+
+                }
+                //move right
+            }
+            if (Input.mousePosition.x < ScreenWidth / 2)
+            {
+
+                if (transform.position.x > -12.26)
+                {
+
+                    transform.position += Vector3.left * Time.deltaTime * speed;
+
+                }
+                //move left
+            }
+        }
+#endif
+
     }
 
+    /// <summary>
+    /// update the score and score UI after a combo is succesfully completed
+    /// </summary>
     private void AddCombo() 
     {
         info.score += combo;
         combo = 0;
+        UpdateComboUI();
 
     }
 
@@ -79,13 +153,14 @@ public class Player : MonoBehaviour
     }
 
 
+
     private IEnumerator Boost() {
         int tempTop=info.topSpeed;
         int tempSlow=info.slowSpeed;
-        info.topSpeed += tempTop + 20;
+        info.topSpeed += tempTop + 10;
         info.slowSpeed += tempSlow+3;
-        yield return new WaitForSeconds(.5f);
-        info.topSpeed = tempTop + 5;
+        yield return new WaitForSeconds(.25f);
+        info.topSpeed = tempTop + 2;
         info.slowSpeed = tempSlow;
         yield return null;
     }
@@ -100,12 +175,15 @@ public class Player : MonoBehaviour
             if (collision.transform.tag == color.ToString())
             {
                 combo++;
+
             }
             else 
             {
-                combo = 0;
+                combo = 1;
                 color = GetColor(collision.transform.tag);
             }
+            Destroy(collision.gameObject);
+            UpdateComboUI();
         }
         else {
             Gate gate = collision.gameObject.GetComponent<Gate>();

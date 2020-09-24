@@ -16,8 +16,6 @@ public class Gate : Block
     {
         textures = Resources.LoadAll<Sprite>("Textures");
         Array.Sort(textures, delegate (Sprite x, Sprite y) { return int.Parse(x.name).CompareTo(int.Parse(y.name)); });
-        foreach (Sprite x in textures)
-            Debug.Log(x.name);
         int temp;
         if (info.score < textures.Length)
             temp = 6;
@@ -30,6 +28,6 @@ public class Gate : Block
 
     public int GetNumber() { return number; }
     public void Correct() {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
