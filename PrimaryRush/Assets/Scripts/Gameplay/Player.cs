@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     //ui
     public TMP_Text comboUI;
+    private ColorSwap swapper;
     //12.26
     private GameHandler info { get { return GameHandler.instance; } }
 
@@ -36,20 +37,25 @@ public class Player : MonoBehaviour
         info.score = 0;
         info.slowSpeed = 1;
         info.speedbar = 100f;
-    }
-    void Start()
-    {
+        swapper = GetComponent<ColorSwap>();
+
         combo = 0;
         timer = 0;
         color = GetRandomEnum<Color>();
-        ScreenWidth = Screen.width;
+        UpdateColor(color);
 
+        ScreenWidth = Screen.width;
     }
+  
     /// <summary>
     /// update the Combo UI text to equal combo var
     /// </summary>
     private void UpdateComboUI() {
-        comboUI.text = combo.ToString();
+        if (combo > 0)
+            comboUI.text = combo.ToString();
+        else
+            comboUI.text = "";
+
     }
 
     /// <summary>
@@ -181,6 +187,7 @@ public class Player : MonoBehaviour
             {
                 combo = 1;
                 color = GetColor(collision.transform.tag);
+                UpdateColor(color);
             }
             Destroy(collision.gameObject);
             UpdateComboUI();
@@ -204,8 +211,9 @@ public class Player : MonoBehaviour
     /// </summary>
     /// <param name="c">color to change to</param>
     private void UpdateColor(Color c) {
-    
-    
+        if (c == Color.Yellow) { swapper.ChangeColor(0); }
+        else if (c == Color.Red) { swapper.ChangeColor(1); }
+        else  { swapper.ChangeColor(2); }
     }
 
 }
