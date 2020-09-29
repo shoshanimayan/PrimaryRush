@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
     private ColorSwap swapper;
     //12.26
     private GameHandler info { get { return GameHandler.instance; } }
-
+    Coroutine co;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -46,7 +47,11 @@ public class Player : MonoBehaviour
 
         ScreenWidth = Screen.width;
     }
-  
+
+    private void Start()
+    {
+    }
+
     /// <summary>
     /// update the Combo UI text to equal combo var
     /// </summary>
@@ -84,6 +89,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //bounce
+        float y = Mathf.PingPong(1 * Time.time, 1);
+        Vector3 pos = new Vector3(transform.position.x, y, transform.position.z);
+        transform.position = pos;
+
         //loop over every touch found
 #if UNITY_IOS	|| UNITY_ANDROID	
         if (Input.touchCount == 1)
@@ -96,6 +106,7 @@ public class Player : MonoBehaviour
                     transform.position += Vector3.right * Time.deltaTime * speed;
 
                 }
+               
                 //move right
             }
             if (Input.GetTouch(0).position.x < ScreenWidth / 2)
@@ -106,6 +117,7 @@ public class Player : MonoBehaviour
                     transform.position += Vector3.left * Time.deltaTime * speed;
 
                 }
+              
                 //move left
             }
         }
@@ -122,7 +134,10 @@ public class Player : MonoBehaviour
                     
                     transform.position += Vector3.right * Time.deltaTime * speed;
 
+                    StartCoroutine(Right());
+
                 }
+
                 //move right
             }
             if (Input.mousePosition.x < ScreenWidth / 2)
@@ -132,11 +147,18 @@ public class Player : MonoBehaviour
                 {
 
                     transform.position += Vector3.left * Time.deltaTime * speed;
+                    StartCoroutine(Left());
 
                 }
+
                 //move left
             }
+            
         }
+        else { 
+            StartCoroutine(Center());
+        }
+     
 #endif
 
     }
@@ -159,6 +181,36 @@ public class Player : MonoBehaviour
     }
 
 
+    private IEnumerator Center()
+    {
+
+            Quaternion target = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
+            yield return null;
+
+    }
+
+    private IEnumerator Right()
+    {
+      
+
+            Quaternion target = Quaternion.Euler(0, 0, -15);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
+            yield return null;
+
+    }
+
+    private IEnumerator Left() 
+    {
+
+       
+
+            Quaternion target = Quaternion.Euler(0, 0, 15);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
+            yield return null;
+       
+
+    }
 
     private IEnumerator Boost() {
         int tempTop=info.topSpeed;
