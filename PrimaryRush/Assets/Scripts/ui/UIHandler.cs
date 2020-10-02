@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine.UI;
-using UnityEngine.PlayerLoop;
 
 //todo
 //score ui
@@ -19,7 +17,7 @@ public class UIHandler : MonoBehaviour
     private void Update() {
 
         score.text = "Score: "+info.score.ToString();
-        timeSlider.value = info.speedbar;
+        timeSlider.value = info.speedbar/100;
     
     }
 }

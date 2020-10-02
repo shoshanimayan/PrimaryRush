@@ -21,4 +21,15 @@ public class GameHandler : ScriptableSingleton<GameHandler>
         slowSpeed = 1;
         speedbar = 100f;
     }
+
+    public void AddTime(float x) {
+        if (speedbar < 100) {
+            float time = x * 5;
+            if (speedbar + time <= 100)
+                speedbar += time;
+            else
+                speedbar = 100;
+        }
+        
+    }
 }

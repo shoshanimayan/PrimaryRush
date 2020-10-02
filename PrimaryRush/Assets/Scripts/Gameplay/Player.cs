@@ -123,6 +123,27 @@ public class Player : MonoBehaviour
         }
 #endif
 #if UNITY_EDITOR || UNITY_STANDALONE
+        //slow down
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (info.speedbar > 0)
+            {
+                info.slowed = !info.slowed;
+            }
+        
+        }
+        //timer runs out and timer counting down
+        if (info.speedbar <= 0)
+        {
+            if (info.slowed)
+                info.slowed = false;
+        }
+        else {
+            if (info.slowed)
+                info.speedbar -= .5f;
+
+        }
+
+        //movement
         if (Input.GetMouseButton(0))
         {
             
@@ -155,6 +176,7 @@ public class Player : MonoBehaviour
             }
             
         }
+        //if no click
         else { 
             StartCoroutine(Center());
         }
@@ -169,6 +191,7 @@ public class Player : MonoBehaviour
     private void AddCombo() 
     {
         info.score += combo;
+        info.AddTime(combo);
         combo = 0;
         UpdateComboUI();
 

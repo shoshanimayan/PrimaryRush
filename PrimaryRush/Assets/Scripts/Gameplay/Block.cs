@@ -22,7 +22,10 @@ public class Block : MonoBehaviour
         {
             rigidbody.velocity = transform.forward * info.topSpeed;
         }
-      //  transform.position = new Vector3(transform.position.x, 0.6f, transform.position.z);
+        else {
+            rigidbody.velocity = transform.forward * info.slowSpeed;
+
+        }
 
     }
 }
