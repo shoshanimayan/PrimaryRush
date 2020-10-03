@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public float speed;
     Rigidbody rigidbody;
     
     protected GameHandler info { get { return GameHandler.instance; } }
@@ -16,7 +15,7 @@ public class Block : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (!info.slowed)
         {

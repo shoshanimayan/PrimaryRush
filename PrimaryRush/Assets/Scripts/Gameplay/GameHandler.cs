@@ -7,8 +7,7 @@ using UnityEngine;
 public class GameHandler : ScriptableSingleton<GameHandler>
 {
 
-    //refactor to have a real speed that will transion between bottom and top speed  in coroutine instead of sudden jumps
-    //stores top speed , slow speed  , speedbar, score counter
+//add thruster particles
     public int score;
     public int topSpeed;
     public int slowSpeed;
@@ -18,9 +17,9 @@ public class GameHandler : ScriptableSingleton<GameHandler>
     private void Awake()
     {
         slowed = false;
-        topSpeed = 10;
+        topSpeed = 15;
         score = 0;
-        slowSpeed = 1;
+        slowSpeed = 7;
         speedbar = 100f;
     }
 

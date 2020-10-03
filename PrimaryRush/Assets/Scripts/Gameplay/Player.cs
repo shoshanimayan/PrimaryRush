@@ -34,9 +34,9 @@ public class Player : MonoBehaviour
     {
         comboUI.text = "0";
         info.slowed = false;
-        info.topSpeed = 10;
+        info.topSpeed = 15;
         info.score = 0;
-        info.slowSpeed = 1;
+        info.slowSpeed = 7;
         info.speedbar = 100f;
         swapper = GetComponent<ColorSwap>();
 
@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
         }
         else {
             if (info.slowed)
-                info.speedbar -= .5f;
+                info.speedbar -= .8f;
 
         }
 
