@@ -12,6 +12,10 @@ public class Generator : MonoBehaviour
     private GameObject blue;
     private GameObject yellow;
     private GameObject gate;
+    private GameObject gateRed;
+    private GameObject gateBlue;
+    private GameObject gateYellow;
+
 
 
     //how many spawned since last gate spawn
@@ -46,8 +50,11 @@ public class Generator : MonoBehaviour
         red = Resources.Load<GameObject>("prefabs/RedCube") ;
         blue = Resources.Load<GameObject>("prefabs/BlueCube") ;
         yellow = Resources.Load<GameObject>("prefabs/YellowCube") ;
-        gate = Resources.Load<GameObject>("prefabs/gate") ;
-        Debug.Log(gate);
+        gate = Resources.Load<GameObject>("prefabs/Gate") ;
+        gateRed = Resources.Load<GameObject>("prefabs/GateRed");
+        gateYellow = Resources.Load<GameObject>("prefabs/GateYellow");
+        gateBlue = Resources.Load<GameObject>("prefabs/GateBlue");
+
     }
 
     // Update is called once per frame
@@ -66,7 +73,6 @@ public class Generator : MonoBehaviour
         //when total amount ==z
         //set new z in spawn gate
 
-        //implement color gates and white gate(any color combo), or one white gate
 
     }
 }

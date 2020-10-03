@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class GameHandler : ScriptableSingleton<GameHandler>
 {
+
+    //refactor to have a real speed that will transion between bottom and top speed  in coroutine instead of sudden jumps
     //stores top speed , slow speed  , speedbar, score counter
     public int score;
     public int topSpeed;

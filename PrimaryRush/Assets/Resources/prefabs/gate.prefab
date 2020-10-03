@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2469888301765227170}
   - component: {fileID: 2469888301765227172}
   m_Layer: 0
-  m_Name: gate
+  m_Name: Gate
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,6 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   img: {fileID: 2469888302838189952}
+  color: 3
 --- !u!65 &2469888301765227172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -315,7 +316,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7b0f7048fb2cdd541b7a202a031e878e, type: 2}
+      objectReference: {fileID: 2100000, guid: 90ad2e0a9a7a4e246b1992ae0be854a5, type: 2}
     - target: {fileID: -927199367670048503, guid: 87188fbc241a69e4b9c6bdb3ce4ae679,
         type: 3}
       propertyPath: m_Name

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.UIElements;
+public enum Color { Blue, Red, Yellow ,White}
 
 public class Player : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class Player : MonoBehaviour
     /// trigger end menu in uihandler
     /// </summary>
     //info vars
-    public enum Color {Blue,Red,Yellow }
     public Color color;
     public int combo ;
     public float timer;
@@ -269,7 +269,7 @@ public class Player : MonoBehaviour
         }
         else {
             Gate gate = collision.gameObject.GetComponent<Gate>();
-            if (combo == gate.GetNumber())
+            if (combo == gate.GetNumber() &&(gate.color==Color.White||color==gate.color))
             {
                 AddCombo();
                 gate.Correct();
