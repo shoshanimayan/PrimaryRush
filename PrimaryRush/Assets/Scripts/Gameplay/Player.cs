@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     private ColorSwap swapper;
     //12.26
     private GameHandler info { get { return GameHandler.instance; } }
-    Coroutine co;
     // Start is called before the first frame update
     private void Awake()
     {

@@ -25,6 +25,8 @@ public class Block : MonoBehaviour
             rigidbody.velocity = transform.forward * info.slowSpeed;
 
         }
+        if (transform.position.z <= 0)
+            Destroy(gameObject);
 
     }
 }
