@@ -12,24 +12,12 @@ public class Generator : MonoBehaviour
     private GameObject yellow;
     private GameObject[] blocks;
     private GameObject gate;
-    private GameObject gateRed;
-    private GameObject gateBlue;
-    private GameObject gateYellow;
-    private GameObject[] gates;
-
 
     private GameHandler info { get { return GameHandler.instance; } }
 
-
-    //how many spawned since last gate spawn
-    private int redCount = 0;
-    private int blueCount = 0;
-    private int yellowCount = 0;
-    //total count is all together
-
     //time based multiplier to determine spawn rate
     private float timeMultiplier = 0;
-    private float gateSpawn = 0;
+    private float gateTimer = 0;
 
     /// <summary>
     /// spawns amount of gates in different lanes, at minimum one open lane
@@ -37,21 +25,23 @@ public class Generator : MonoBehaviour
     ///track how many of each color since last gate and choose random color range or players current color range
     /// </summary>
     /// <param name="amount"># 1-4</param>
-    private void SpawmGates(int amount)
+    /// <param name="taken">spawn spaces already taken</param>
+
+    private List<int> SpawnGate(int amount, List<int> taken)
     {
-        List<GameObject> taken = new List<GameObject>();
-        if (yellowCount >= 5 | blueCount >= 5 || redCount >= 5)
+        while (amount > 0)
         {
-
-
+            int x = Random.Range(0, 5);
+            if (!taken.Contains(x))
+            {
+                taken.Add(x);
+                Instantiate(gate, spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
+                amount--;
+            }
         }
-
-
+        gateTimer = Random.Range(5f,15.1f);
+        return taken;
     }
-
- 
-
-  
 
     /// <summary>
     /// spawn amount of gates, could be all dif or same color, but different lanes, at minimum one open lane
@@ -61,35 +51,69 @@ public class Generator : MonoBehaviour
     /// <param name="amount"> # 1-4</param>
     private void SpawnBlocks(int amount)
     {
-        List<float> taken = new List<float>();
-        float[] spaces = new float[] { 0, 1, 2, 3, 4 };
-
-    
-
-        while(amount>0)
+        List<int> taken = new List<int>();
+        if (amount == 5)
         {
-            int x = Random.Range(0, 5);
-            if (!taken.Contains(x))
-            {
-                taken.Add(x);
-                Instantiate(blocks[Random.Range(0, 3)], spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
-                amount--;
+            amount--;
+            int x = 0;
+            switch (info.color) {
+                case Color.Red:
+                    x = 0;
+                    break;
+                case Color.Yellow:
+                    x = 1;
+                    break;
+                case Color.Blue:
+                    x = 2;
+                    break;
             }
-          
-
-        }
-
-        if (info.score < 20)
-        {
-            timeMultiplier = 3;
-        }
-        else if ((info.score >= 20) && (info.score <= 20))
-        {
-            timeMultiplier = 2;
+            taken.Add(x);
+            Instantiate(blocks[x], spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
+            while (amount > 0)
+            {
+                x = Random.Range(0, 5);
+                if (!taken.Contains(x))
+                {
+                    taken.Add(x);
+                    Instantiate(blocks[Random.Range(0, 3)], spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
+                    amount--;
+                }
+            }
         }
         else
         {
-            timeMultiplier = 1;
+            if (gateTimer <= 0)
+            {
+                int x = 1;
+                taken = SpawnGate(x, taken);
+            }
+            while (amount > 0)
+            {
+                int x = Random.Range(0, 5);
+                if (!taken.Contains(x))
+                {
+                    taken.Add(x);
+                    Instantiate(blocks[Random.Range(0, 3)], spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
+                    amount--;
+                }
+            }
+        }
+
+        if (info.score < 5)
+        {
+            timeMultiplier = 3;
+        }
+        if (info.score < 10)
+        {
+            timeMultiplier = 2;
+        }
+        else if ((info.score >= 10) && (info.score <= 45))
+        {
+            timeMultiplier = 1.5f;
+        }
+        else
+        {
+            timeMultiplier = .5f;
         }
 
 
@@ -103,11 +127,8 @@ public class Generator : MonoBehaviour
         blue = Resources.Load<GameObject>("prefabs/BlueCube");
         yellow = Resources.Load<GameObject>("prefabs/YellowCube");
         gate = Resources.Load<GameObject>("prefabs/Gate");
-        gateRed = Resources.Load<GameObject>("prefabs/GateRed");
-        gateYellow = Resources.Load<GameObject>("prefabs/GateYellow");
-        gateBlue = Resources.Load<GameObject>("prefabs/GateBlue");
-        gateSpawn = 5;
-        gates = new GameObject[] { gateYellow, gate, gateBlue, gateRed };
+
+        gateTimer = 5f;
         blocks = new GameObject[] { red,yellow,blue};
 
     }
@@ -120,21 +141,23 @@ public class Generator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(timeMultiplier);
         if (timeMultiplier <= 0)
         {
-            SpawnBlocks(Random.Range(1, 5));
+            if(info.score<=10)
+                SpawnBlocks(Random.Range(1, 6));
+            else if(info.score>10 &&info.score<=20)
+                SpawnBlocks(Random.Range(2, 6));
+            else if (info.score >20  && info.score <= 30)
+                SpawnBlocks(Random.Range(3, 6));
+            else
+                SpawnBlocks(Random.Range(1, 6));
 
         }
         timeMultiplier -= (Time.deltaTime);
-
-        if (gateSpawn == yellowCount + blueCount + redCount)
-        {
-            SpawmGates(Random.Range(1, 5));
+        gateTimer -= (Time.deltaTime);
 
 
-        }
-        //current score effects spawn timer, higher score, higher spawn rate, or just let the score effect speed and have consistent spawn rate, experiment
+
 
 
 

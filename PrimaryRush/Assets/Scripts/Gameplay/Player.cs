@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.UIElements;
-public enum Color { Blue, Red, Yellow ,White}
+public enum Color { Blue, Red, Yellow }
 
 public class Player : MonoBehaviour
 {
@@ -73,17 +73,6 @@ public class Player : MonoBehaviour
         T V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
         return V;
     }
-    private Color GetColor(string x) {
-        if (x == "Blue")
-            return Color.Blue;
-        else if (x == "Red")
-            return Color.Red;
-        else
-            return Color.Yellow;
-
-
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -101,11 +90,12 @@ public class Player : MonoBehaviour
             {
                 if (transform.position.x < 12.26f)
                 {
-                    
+
                     transform.position += Vector3.right * Time.deltaTime * speed;
 
+                    StartCoroutine(Right());
                 }
-               
+
                 //move right
             }
             if (Input.GetTouch(0).position.x < ScreenWidth / 2)
@@ -114,11 +104,27 @@ public class Player : MonoBehaviour
                 {
 
                     transform.position += Vector3.left * Time.deltaTime * speed;
-
+                    StartCoroutine(Left());
                 }
-              
+
                 //move left
             }
+        }
+        else if (Input.touchCount==2) 
+        {
+            if ((Input.GetTouch(0).position.x > ScreenWidth / 2 && Input.GetTouch(1).position.x < ScreenWidth / 2) || (Input.GetTouch(1).position.x > ScreenWidth / 2 && Input.GetTouch(0).position.x < ScreenWidth / 2))
+                if (Input.GetTouch(0).phase == TouchPhase.Began && Input.GetTouch(1).phase == TouchPhase.Began)
+                {
+                    if (info.speedbar > 0)
+                    {
+                        info.slowed = !info.slowed;
+                    }
+                }
+            
+        }
+        else
+        {
+            StartCoroutine(Center());
         }
 #endif
 #if UNITY_EDITOR || UNITY_STANDALONE
@@ -130,17 +136,7 @@ public class Player : MonoBehaviour
             }
         
         }
-        //timer runs out and timer counting down
-        if (info.speedbar <= 0)
-        {
-            if (info.slowed)
-                info.slowed = false;
-        }
-        else {
-            if (info.slowed)
-                info.speedbar -= .8f;
 
-        }
 
         //movement
         if (Input.GetMouseButton(0))
@@ -179,9 +175,20 @@ public class Player : MonoBehaviour
         else { 
             StartCoroutine(Center());
         }
-     
-#endif
 
+
+#endif
+        //timer runs out and timer counting down
+        if (info.speedbar <= 0)
+        {
+            if (info.slowed)
+                info.slowed = false;
+        }
+        else
+        {
+            if (info.slowed)
+                info.speedbar -= .8f;
+        }
     }
 
     /// <summary>
@@ -193,7 +200,6 @@ public class Player : MonoBehaviour
         info.AddTime(combo);
         combo = 0;
         UpdateComboUI();
-
     }
 
     private void Die() {
@@ -205,33 +211,23 @@ public class Player : MonoBehaviour
 
     private IEnumerator Center()
     {
-
             Quaternion target = Quaternion.Euler(0, 0, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
             yield return null;
-
     }
 
     private IEnumerator Right()
     {
-      
-
             Quaternion target = Quaternion.Euler(0, 0, -15);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
             yield return null;
-
     }
 
     private IEnumerator Left() 
     {
-
-       
-
             Quaternion target = Quaternion.Euler(0, 0, 15);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
             yield return null;
-       
-
     }
 
     private IEnumerator Boost() {
@@ -255,36 +251,30 @@ public class Player : MonoBehaviour
             if (collision.transform.tag == color.ToString())
             {
                 combo++;
-
+                UpdateComboUI();
             }
             else 
             {
-                combo = 1;
-                color = GetColor(collision.transform.tag);
-                UpdateColor(color);
+                Die();
             }
             Destroy(collision.gameObject);
-            UpdateComboUI();
         }
         else {
-            Gate gate = collision.gameObject.GetComponent<Gate>();
-            if (combo == gate.GetNumber() &&(gate.color==Color.White||color==gate.color))
-            {
                 AddCombo();
-                gate.Correct();
+                collision.gameObject.GetComponent<Gate>().Correct();
                 StartCoroutine(Boost());
-            }
-            else {
-                Die();            
-            }
+                combo = 0;
+                color = GetRandomEnum<Color>();
+                UpdateColor(color);
         }
-
     }
+
     /// <summary>
     /// update color of model to match enum of
     /// </summary>
     /// <param name="c">color to change to</param>
     private void UpdateColor(Color c) {
+        info.color = c;
         if (c == Color.Yellow) { swapper.ChangeColor(0); }
         else if (c == Color.Red) { swapper.ChangeColor(1); }
         else  { swapper.ChangeColor(2); }

@@ -13,6 +13,7 @@ public class GameHandler : ScriptableSingleton<GameHandler>
     public int slowSpeed;
     public float speedbar;
     public bool slowed;
+    public Color color;
 
     private void Awake()
     {
