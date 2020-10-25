@@ -141,31 +141,24 @@ public class Generator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeMultiplier <= 0)
+        if (info.alive)
         {
-            if(info.score<=10)
-                SpawnBlocks(Random.Range(1, 6));
-            else if(info.score>10 &&info.score<=20)
-                SpawnBlocks(Random.Range(2, 6));
-            else if (info.score >20  && info.score <= 30)
-                SpawnBlocks(Random.Range(3, 6));
-            else
-                SpawnBlocks(Random.Range(1, 6));
+            if (timeMultiplier <= 0)
+            {
+                if (info.score <= 10)
+                    SpawnBlocks(Random.Range(1, 6));
+                else if (info.score > 10 && info.score <= 20)
+                    SpawnBlocks(Random.Range(2, 6));
+                else if (info.score > 20 && info.score <= 30)
+                    SpawnBlocks(Random.Range(3, 6));
+                else
+                    SpawnBlocks(Random.Range(1, 6));
+
+            }
+            timeMultiplier -= (Time.deltaTime);
+            gateTimer -= (Time.deltaTime);
+
 
         }
-        timeMultiplier -= (Time.deltaTime);
-        gateTimer -= (Time.deltaTime);
-
-
-
-
-
-
-        //every z blocks spawn gates
-        //randomize what z is but increase range as score grows
-        //when total amount ==z
-        //set new z in spawn gate
-
-
     }
 }

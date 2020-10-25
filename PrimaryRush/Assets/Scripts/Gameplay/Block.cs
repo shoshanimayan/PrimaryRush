@@ -17,16 +17,19 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!info.slowed)
+        if (info.alive)
         {
-            rigidbody.velocity = transform.forward * info.topSpeed;
-        }
-        else {
-            rigidbody.velocity = transform.forward * info.slowSpeed;
+            if (!info.slowed)
+            {
+                rigidbody.velocity = transform.forward * info.topSpeed;
+            }
+            else
+            {
+                rigidbody.velocity = transform.forward * info.slowSpeed;
 
+            }
+            if (transform.position.z <= 0)
+                Destroy(gameObject);
         }
-        if (transform.position.z <= 0)
-            Destroy(gameObject);
-
     }
 }

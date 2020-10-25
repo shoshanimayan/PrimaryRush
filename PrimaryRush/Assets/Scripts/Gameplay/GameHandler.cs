@@ -8,15 +8,18 @@ public class GameHandler : ScriptableSingleton<GameHandler>
 {
 
 //add thruster particles
+
     public int score;
     public int topSpeed;
     public int slowSpeed;
     public float speedbar;
     public bool slowed;
+    public bool alive;
     public Color color;
 
     private void Awake()
     {
+        alive = true;
         slowed = false;
         topSpeed = 15;
         score = 0;
@@ -24,14 +27,21 @@ public class GameHandler : ScriptableSingleton<GameHandler>
         speedbar = 100f;
     }
 
-    public void AddTime(float x) {
-        if (speedbar < 100) {
+  
+    public IEnumerator IncrementTime(float x) {
+        float speed = speedbar;
+        if (speed < 100)
+        {
             float time = x * 5;
-            if (speedbar + time <= 100)
-                speedbar += time;
+            if (speed + time <= 100)
+                speed += time;
             else
-                speedbar = 100;
+                speed = 100;
         }
-        
+        while (speedbar < speed) {
+            speedbar++;
+            yield return null;
+
+        }
     }
 }

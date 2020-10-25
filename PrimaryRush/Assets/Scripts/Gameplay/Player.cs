@@ -10,8 +10,6 @@ public class Player : MonoBehaviour
 {
     /// <summary>
     /// todo
-    /// slow down
-    /// Update color function
     /// trigger end menu in uihandler
     /// </summary>
     //info vars
@@ -26,6 +24,7 @@ public class Player : MonoBehaviour
     //ui
     public TMP_Text comboUI;
     private ColorSwap swapper;
+    private UIHandler UI;
     //12.26
     private GameHandler info { get { return GameHandler.instance; } }
     // Start is called before the first frame update
@@ -37,8 +36,9 @@ public class Player : MonoBehaviour
         info.score = 0;
         info.slowSpeed = 7;
         info.speedbar = 100f;
+        info.alive = true;
         swapper = GetComponent<ColorSwap>();
-
+        UI = GameObject.FindGameObjectWithTag("Finish").GetComponent<UIHandler>();
         combo = 0;
         timer = 0;
         color = GetRandomEnum<Color>();
@@ -197,14 +197,14 @@ public class Player : MonoBehaviour
     private void AddCombo() 
     {
         info.score += combo;
-        info.AddTime(combo);
+        StartCoroutine(info.IncrementTime(combo));
         combo = 0;
         UpdateComboUI();
     }
 
     private void Die() {
-        info.topSpeed = 0;
-        info.slowSpeed = 0;
+        info.alive = false;
+        UI.EndUi();
         Destroy(gameObject);
     }
 
