@@ -15,7 +15,6 @@ public class ColorSwap : MonoBehaviour
 
     private void Awake()
     {
-        color1 = UnityEngine.Color.black;
         color2= UnityEngine.Color.black;
 
     }
