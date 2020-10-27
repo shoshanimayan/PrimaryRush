@@ -55,9 +55,21 @@ public class UIHandler : MonoBehaviour
 
     //buttons
 
-    public void Menu() 
+    public void Menu()
     {
         SceneManager.LoadScene("Menu");
+
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene("Game");
+
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
 
     }
 

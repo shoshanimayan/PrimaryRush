@@ -1963,6 +1963,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0e4a5a6f9be74a941adb85e877b27eb6, type: 2}
   - {fileID: 2100000, guid: 52c3625d0eed7cd4eb651014a685fa95, type: 2}
   - {fileID: 2100000, guid: 7b0f7048fb2cdd541b7a202a031e878e, type: 2}
+  color1: {r: 0, g: 0, b: 0, a: 0}
+  color2: {r: 0, g: 0, b: 0, a: 0}
+  duration: 3
+  c1: {r: 0.38969305, g: 0.3962264, b: 0.02055892, a: 0}
+  c2: {r: 0.4528302, g: 0.040583827, b: 0.040583827, a: 0}
+  c3: {r: 0.027189402, g: 0.056772277, b: 0.4433962, a: 0}
 --- !u!1001 &1675679497
 PrefabInstance:
   m_ObjectHideFlags: 0
