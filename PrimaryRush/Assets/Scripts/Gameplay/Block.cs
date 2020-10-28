@@ -7,7 +7,7 @@ public class Block : MonoBehaviour
 {
     Rigidbody rigidbody;
     
-    protected GameHandler info { get { return GameHandler.instance; } }
+    protected GameHandler info { get { return GameHandler.Instance; } }
     // Start is called before the first frame update
     void Awake()
     {

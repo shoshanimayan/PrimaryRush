@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private ColorSwap swapper;
     private UIHandler UI;
     //12.26
-    private GameHandler info { get { return GameHandler.instance; } }
+    private GameHandler info { get { return GameHandler.Instance; } }
     // Start is called before the first frame update
     private void Awake()
     {

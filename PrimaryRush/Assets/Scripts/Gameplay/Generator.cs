@@ -13,7 +13,7 @@ public class Generator : MonoBehaviour
     private GameObject[] blocks;
     private GameObject gate;
 
-    private GameHandler info { get { return GameHandler.instance; } }
+    private GameHandler info { get { return GameHandler.Instance; } }
 
     //time based multiplier to determine spawn rate
     private float timeMultiplier = 0;

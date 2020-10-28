@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScrollText : MonoBehaviour
 {
     Renderer render;
-    private GameHandler info { get { return GameHandler.instance; } }
+    private GameHandler info { get { return GameHandler.Instance; } }
 
 
     private void Start()

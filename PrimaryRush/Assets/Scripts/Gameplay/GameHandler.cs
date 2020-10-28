@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 
-public class GameHandler : ScriptableSingleton<GameHandler>
+public class GameHandler : Singleton<GameHandler>
 {
 
 //add thruster particles

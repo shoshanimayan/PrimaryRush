@@ -13,7 +13,7 @@ public class UIHandler : MonoBehaviour
 {
     public TMP_Text score;
     public Slider timeSlider;
-    private GameHandler info { get { return GameHandler.instance; } }
+    private GameHandler info { get { return GameHandler.Instance; } }
 
     //end screen variables
     public GameObject endScreen;
