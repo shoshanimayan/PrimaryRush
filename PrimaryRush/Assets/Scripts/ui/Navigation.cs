@@ -23,4 +23,9 @@ public class Navigation : MonoBehaviour
         SceneManager.LoadScene("Credits");
 
     }
+    public void How()
+    {
+        SceneManager.LoadScene("How");
+
+    }
 }

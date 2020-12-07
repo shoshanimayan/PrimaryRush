@@ -28,10 +28,15 @@ public class Player : MonoBehaviour
     public ParticleSystem particle;
     public GameObject ship;
     //12.26
+
+    private AudioSource AS;
+   public  AudioSource AS2;
+
     private GameHandler info { get { return GameHandler.Instance; } }
     // Start is called before the first frame update
     private void Awake()
     {
+        AS = GetComponent<AudioSource>();
         comboUI.text = "0";
         info.slowed = false;
         info.topSpeed = 15;
@@ -211,6 +216,7 @@ public class Player : MonoBehaviour
     }
     
     private void Die() {
+        AS2.Stop();
         info.alive = false;
         particle.startColor = UnityEngine.Color.white;
         particle.Play();
@@ -257,6 +263,7 @@ public class Player : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
+        AS.PlayOneShot(AS.clip);
         if (collision.transform.tag != "Gate") {
             if (collision.transform.tag == color.ToString())
             {
