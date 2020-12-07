@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     public TMP_Text comboUI;
     private ColorSwap swapper;
     private UIHandler UI;
+    public ParticleSystem particle;
+    public GameObject ship;
     //12.26
     private GameHandler info { get { return GameHandler.Instance; } }
     // Start is called before the first frame update
@@ -70,7 +72,13 @@ public class Player : MonoBehaviour
     private T GetRandomEnum<T>()
     {
         System.Array A = System.Enum.GetValues(typeof(T));
-        T V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+        T V;
+        while (true)
+        {
+
+            V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+            if (!V.Equals(color)) { break; }
+        }
         return V;
     }
 
@@ -201,11 +209,13 @@ public class Player : MonoBehaviour
         combo = 0;
         UpdateComboUI();
     }
-
+    
     private void Die() {
         info.alive = false;
+        particle.startColor = UnityEngine.Color.white;
+        particle.Play();
         UI.EndUi();
-        Destroy(gameObject);
+        ship.SetActive(false);
     }
 
 
@@ -231,8 +241,8 @@ public class Player : MonoBehaviour
     }
 
     private IEnumerator Boost() {
-        int tempTop=info.topSpeed;
-        int tempSlow=info.slowSpeed;
+        float tempTop=info.topSpeed;
+        float tempSlow=info.slowSpeed;
         info.topSpeed += tempTop + 10;
         info.slowSpeed += tempSlow+3;
         yield return new WaitForSeconds(.25f);
@@ -252,6 +262,7 @@ public class Player : MonoBehaviour
             {
                 combo++;
                 UpdateComboUI();
+                particle.Play();
             }
             else 
             {
@@ -275,9 +286,20 @@ public class Player : MonoBehaviour
     /// <param name="c">color to change to</param>
     private void UpdateColor(Color c) {
         info.color = c;
-        if (c == Color.Yellow) { swapper.ChangeColor(0); }
-        else if (c == Color.Red) { swapper.ChangeColor(1); }
-        else  { swapper.ChangeColor(2); }
+        if (c == Color.Yellow) {
+            swapper.ChangeColor(0);
+            particle.startColor =UnityEngine.Color.yellow;
+            particle.Play();
+        }
+        else if (c == Color.Red) { swapper.ChangeColor(1);
+            particle.startColor = UnityEngine.Color.red;
+            particle.Play();
+
+        }
+        else  { swapper.ChangeColor(2);
+            particle.startColor = UnityEngine.Color.blue;
+            particle.Play();
+        }
     }
 
 }

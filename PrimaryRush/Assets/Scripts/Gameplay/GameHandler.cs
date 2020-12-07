@@ -10,8 +10,8 @@ public class GameHandler : Singleton<GameHandler>
 //add thruster particles
 
     public int score;
-    public int topSpeed;
-    public int slowSpeed;
+    public float topSpeed;
+    public float slowSpeed;
     public float speedbar;
     public bool slowed;
     public bool alive;

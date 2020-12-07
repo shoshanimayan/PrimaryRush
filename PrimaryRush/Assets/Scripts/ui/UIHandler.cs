@@ -24,11 +24,9 @@ public class UIHandler : MonoBehaviour
         endScreen.SetActive(false);
     }
 
-    /// <summary>
-    /// sets up end screen UI
-    /// </summary>
-    public void EndUi() 
-    {
+    private IEnumerator closer() {
+
+        yield return new WaitForSeconds(1);
         endScreen.SetActive(true);
 
         if (PlayerPrefs.HasKey("score"))
@@ -40,16 +38,27 @@ public class UIHandler : MonoBehaviour
                 PlayerPrefs.SetFloat("score", info.score);
 
             }
-            else {
+            else
+            {
                 highScore.text = "High Score: " + PlayerPrefs.GetFloat("score").ToString(); ;
                 yourScore.text = "Your Score: " + info.score.ToString();
             }
         }
-        else {
+        else
+        {
             PlayerPrefs.SetFloat("score", info.score);
             highScore.text = "Congratualtions!";
             yourScore.text = "New Personal Best of " + info.score.ToString();
         }
+    }
+
+    /// <summary>
+    /// sets up end screen UI
+    /// </summary>
+
+    public void EndUi() 
+    {
+        StartCoroutine(closer());
     
     }
 
@@ -79,11 +88,13 @@ public class UIHandler : MonoBehaviour
     }
 
     private void Update() {
+
         if (info.alive)
         {
             score.text = "Score: " + info.score.ToString();
             timeSlider.value = info.speedbar / 100;
         }
         
+
     }
 }

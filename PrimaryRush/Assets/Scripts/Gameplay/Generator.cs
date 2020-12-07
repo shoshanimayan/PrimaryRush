@@ -103,7 +103,7 @@ public class Generator : MonoBehaviour
         {
             timeMultiplier = 3;
         }
-        if (info.score < 10)
+        else if (info.score < 10)
         {
             timeMultiplier = 2;
         }
