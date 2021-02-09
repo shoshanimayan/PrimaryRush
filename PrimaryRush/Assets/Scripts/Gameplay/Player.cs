@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     //info vars
     public ColorType color;
     public int combo ;
-    public float timer;
 
     //input
     private float ScreenWidth;
@@ -38,20 +37,15 @@ public class Player : MonoBehaviour
     {
         AS = GetComponent<AudioSource>();
         comboUI.text = "0";
-        info.slowed = false;
-        info.topSpeed = 15;
-        info.score = 0;
-        info.slowSpeed = 7;
-        info.speedbar = 100f;
-        info.alive = true;
         swapper = GetComponent<ColorSwap>();
         UI = GameObject.FindGameObjectWithTag("Finish").GetComponent<UIHandler>();
         combo = 0;
-        timer = 0;
         color = GetRandomEnum<ColorType>();
         UpdateColor(color);
 
         ScreenWidth = Screen.width;
+        info.alive = true;
+
     }
 
     private void Start()

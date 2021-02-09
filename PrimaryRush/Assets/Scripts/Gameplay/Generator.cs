@@ -9,6 +9,7 @@ public class Generator : MonoBehaviour
     public GameObject[] spawnSpot;
     private string[] blocks;
     private PoolManager pool;
+    private bool gateReady;
 
     private GameHandler info { get { return GameHandler.Instance; } }
 
@@ -80,10 +81,12 @@ public class Generator : MonoBehaviour
         }
         else
         {
-            if (gateTimer <= 0)
+            if (gateReady)
             {
                 int x = 1;
                 taken = SpawnGate(x, taken);
+                gateReady = false;
+                StartCoroutine(CountdownGate(gateTimer));
             }
             while (amount > 0)
             {
@@ -99,21 +102,21 @@ public class Generator : MonoBehaviour
 
         if (info.score < 5)
         {
-            spawnTimer = 3;
+            spawnTimer =2f;
         }
         else if (info.score < 10)
         {
-            spawnTimer = 2;
+            spawnTimer = 1.5f;
         }
         else if ((info.score >= 10) && (info.score <= 45))
         {
-            spawnTimer = 1.5f;
+            spawnTimer = 1f;
         }
         else
         {
             spawnTimer = .5f;
         }
-
+        StartCoroutine(CountdownBlock(spawnTimer));
 
     }
 
@@ -121,24 +124,20 @@ public class Generator : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
+        gateReady = false;
         pool = GetComponent<PoolManager>();
         gateTimer = 10f;
+        spawnTimer = 0;
         blocks = new string[] { "Red","Yellow","Blue"};
 
     }
 
-    private void Start()
+    IEnumerator CountdownBlock(float seconds)
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (info.alive &&pool.ready)
+        yield return new WaitForSeconds(seconds);
+        if (info.alive && pool.ready)
         {
-            if (spawnTimer <= 0)
-            {
+           
                 if (info.score <= 10)
                     SpawnBlocks(Random.Range(1, 6));
                 else if (info.score > 10 && info.score <= 20)
@@ -148,11 +147,27 @@ public class Generator : MonoBehaviour
                 else
                     SpawnBlocks(Random.Range(1, 6));
 
-            }
-            spawnTimer -= (Time.deltaTime);
-            gateTimer -= (Time.deltaTime);
+            
+
 
 
         }
+
     }
+
+    IEnumerator CountdownGate(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        gateReady = true;
+
+    }
+
+    private void Start()
+    {
+        StartCoroutine(CountdownBlock(spawnTimer));
+        StartCoroutine(CountdownGate(gateTimer));
+    }
+
+    // Update is called once per frame
+ 
 }

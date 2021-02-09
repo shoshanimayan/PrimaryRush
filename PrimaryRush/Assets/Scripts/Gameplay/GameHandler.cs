@@ -26,8 +26,16 @@ public class GameHandler : Singleton<GameHandler>
         slowSpeed = 7;
         speedbar = 100f;
     }
+    private void Start()
+    {
+        alive = true;
+        slowed = false;
+        topSpeed = 15;
+        score = 0;
+        slowSpeed = 7;
+        speedbar = 100f;
+    }
 
-  
     public IEnumerator IncrementTime(float x) {
         float speed = speedbar;
         if (speed < 100)
