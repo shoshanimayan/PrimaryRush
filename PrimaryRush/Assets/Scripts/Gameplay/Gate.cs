@@ -17,6 +17,6 @@ public class Gate : Block
     /// </summary>
 
     public void Correct() {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

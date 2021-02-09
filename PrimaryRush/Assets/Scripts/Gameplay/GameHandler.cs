@@ -15,7 +15,7 @@ public class GameHandler : Singleton<GameHandler>
     public float speedbar;
     public bool slowed;
     public bool alive;
-    public Color color;
+    public ColorType color;
 
     private void Awake()
     {

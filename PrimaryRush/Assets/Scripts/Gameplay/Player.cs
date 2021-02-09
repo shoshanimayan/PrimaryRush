@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.UIElements;
-public enum Color { Blue, Red, Yellow }
+public enum ColorType { Blue, Red, Yellow }
 
 public class Player : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     /// trigger end menu in uihandler
     /// </summary>
     //info vars
-    public Color color;
+    public ColorType color;
     public int combo ;
     public float timer;
 
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
         UI = GameObject.FindGameObjectWithTag("Finish").GetComponent<UIHandler>();
         combo = 0;
         timer = 0;
-        color = GetRandomEnum<Color>();
+        color = GetRandomEnum<ColorType>();
         UpdateColor(color);
 
         ScreenWidth = Screen.width;
@@ -162,7 +162,6 @@ public class Player : MonoBehaviour
                 {
                     
                     transform.position += Vector3.right * Time.deltaTime * speed;
-
                     StartCoroutine(Right());
 
                 }
@@ -282,7 +281,7 @@ public class Player : MonoBehaviour
                 collision.gameObject.GetComponent<Gate>().Correct();
                 StartCoroutine(Boost());
                 combo = 0;
-                color = GetRandomEnum<Color>();
+                color = GetRandomEnum<ColorType>();
                 UpdateColor(color);
         }
     }
@@ -291,21 +290,18 @@ public class Player : MonoBehaviour
     /// update color of model to match enum of
     /// </summary>
     /// <param name="c">color to change to</param>
-    private void UpdateColor(Color c) {
+    private void UpdateColor(ColorType c) {
         info.color = c;
-        if (c == Color.Yellow) {
+        if (c == ColorType.Yellow) {
             swapper.ChangeColor(0);
             particle.startColor =UnityEngine.Color.yellow;
-            particle.Play();
         }
-        else if (c == Color.Red) { swapper.ChangeColor(1);
+        else if (c == ColorType.Red) { swapper.ChangeColor(1);
             particle.startColor = UnityEngine.Color.red;
-            particle.Play();
 
         }
         else  { swapper.ChangeColor(2);
             particle.startColor = UnityEngine.Color.blue;
-            particle.Play();
         }
     }
 

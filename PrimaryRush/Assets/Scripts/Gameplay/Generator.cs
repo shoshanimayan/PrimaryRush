@@ -57,13 +57,13 @@ public class Generator : MonoBehaviour
             amount--;
             int x = 0;
             switch (info.color) {
-                case Color.Red:
+                case ColorType.Red:
                     x = 0;
                     break;
-                case Color.Yellow:
+                case ColorType.Yellow:
                     x = 1;
                     break;
-                case Color.Blue:
+                case ColorType.Blue:
                     x = 2;
                     break;
             }

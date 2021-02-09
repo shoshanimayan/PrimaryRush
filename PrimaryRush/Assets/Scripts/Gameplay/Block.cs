@@ -29,7 +29,7 @@ public class Block : MonoBehaviour
 
             }
             if (transform.position.z <= 0)
-                Destroy(gameObject);
+                gameObject.SetActive(false);
         }
     }
 }
