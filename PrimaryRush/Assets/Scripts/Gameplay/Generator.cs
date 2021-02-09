@@ -7,16 +7,13 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     public GameObject[] spawnSpot;
-    private GameObject red;
-    private GameObject blue;
-    private GameObject yellow;
-    private GameObject[] blocks;
-    private GameObject gate;
+    private string[] blocks;
+    private PoolManager pool;
 
     private GameHandler info { get { return GameHandler.Instance; } }
 
     //time based multiplier to determine spawn rate
-    private float timeMultiplier = 0;
+    private float spawnTimer = 0;
     private float gateTimer = 0;
 
     /// <summary>
@@ -24,7 +21,7 @@ public class Generator : MonoBehaviour
     /// spawn formula, get some fraction of one, whichever x/5 it is closest to is where it spawns, if already spawned there at this spawning, pick open spot on side of it
     ///track how many of each color since last gate and choose random color range or players current color range
     /// </summary>
-    /// <param name="amount"># 1-4</param>
+    /// <param name="amount"># 1-4 objects to be spawned</param>
     /// <param name="taken">spawn spaces already taken</param>
 
     private List<int> SpawnGate(int amount, List<int> taken)
@@ -35,7 +32,7 @@ public class Generator : MonoBehaviour
             if (!taken.Contains(x))
             {
                 taken.Add(x);
-                Instantiate(gate, spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
+                pool.ActivateGate(spawnSpot[x].transform);
                 amount--;
             }
         }
@@ -48,34 +45,35 @@ public class Generator : MonoBehaviour
     /// spawn formula, get some fraction of one, whichever x/5 it is closest to is where it spawns, if already spawned there at this spawning, pick open spot on side of it
     /// track colors spawned
     /// </summary>
-    /// <param name="amount"> # 1-4</param>
+    /// <param name="amount"> spaces to spawn# 1-5</param>
     private void SpawnBlocks(int amount)
     {
         List<int> taken = new List<int>();
         if (amount == 5)
         {
             amount--;
-            int x = 0;
+           int x = Random.Range(0, 5);
+            int mustHave=0;
             switch (info.color) {
                 case ColorType.Red:
-                    x = 0;
+                    mustHave = 0;
                     break;
                 case ColorType.Yellow:
-                    x = 1;
+                    mustHave= 1;
                     break;
                 case ColorType.Blue:
-                    x = 2;
+                    mustHave = 2;
                     break;
             }
             taken.Add(x);
-            Instantiate(blocks[x], spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
+            pool.ActivateBlock(blocks[mustHave], spawnSpot[x].transform);
             while (amount > 0)
             {
                 x = Random.Range(0, 5);
                 if (!taken.Contains(x))
                 {
                     taken.Add(x);
-                    Instantiate(blocks[Random.Range(0, 3)], spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
+                    pool.ActivateBlock(blocks[Random.Range(0, 3)], spawnSpot[x].transform);
                     amount--;
                 }
             }
@@ -93,7 +91,7 @@ public class Generator : MonoBehaviour
                 if (!taken.Contains(x))
                 {
                     taken.Add(x);
-                    Instantiate(blocks[Random.Range(0, 3)], spawnSpot[x].transform.position, spawnSpot[x].transform.rotation);
+                    pool.ActivateBlock(blocks[Random.Range(0, 3)], spawnSpot[x].transform);
                     amount--;
                 }
             }
@@ -101,19 +99,19 @@ public class Generator : MonoBehaviour
 
         if (info.score < 5)
         {
-            timeMultiplier = 3;
+            spawnTimer = 3;
         }
         else if (info.score < 10)
         {
-            timeMultiplier = 2;
+            spawnTimer = 2;
         }
         else if ((info.score >= 10) && (info.score <= 45))
         {
-            timeMultiplier = 1.5f;
+            spawnTimer = 1.5f;
         }
         else
         {
-            timeMultiplier = .5f;
+            spawnTimer = .5f;
         }
 
 
@@ -123,27 +121,23 @@ public class Generator : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        red = Resources.Load<GameObject>("prefabs/RedCube");
-        blue = Resources.Load<GameObject>("prefabs/BlueCube");
-        yellow = Resources.Load<GameObject>("prefabs/YellowCube");
-        gate = Resources.Load<GameObject>("prefabs/Gate");
 
-        gateTimer = 5f;
-        blocks = new GameObject[] { red,yellow,blue};
+        pool = GetComponent<PoolManager>();
+        gateTimer = 10f;
+        blocks = new string[] { "Red","Yellow","Blue"};
 
     }
 
     private void Start()
     {
-        SpawnBlocks(Random.Range(1, 5));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (info.alive)
+        if (info.alive &&pool.ready)
         {
-            if (timeMultiplier <= 0)
+            if (spawnTimer <= 0)
             {
                 if (info.score <= 10)
                     SpawnBlocks(Random.Range(1, 6));
@@ -155,7 +149,7 @@ public class Generator : MonoBehaviour
                     SpawnBlocks(Random.Range(1, 6));
 
             }
-            timeMultiplier -= (Time.deltaTime);
+            spawnTimer -= (Time.deltaTime);
             gateTimer -= (Time.deltaTime);
 
 

@@ -1,66 +1,115 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class PoolManager : MonoBehaviour
 {
     private GameObject redPref;
-    private GameObject bluePref;
-    private GameObject yellowPref;
     private GameObject gatePref;
 
 
-    public List<GameObject> redPool;
-    public List<GameObject> yellowPool;
-    public List<GameObject> bluePool;
-    public List<GameObject> gatePool;
+    public Material redM;
+    public Material blueM;
+    public Material yellowM;
+
+    public bool ready;
+    public Queue<GameObject> blockPool;
+    public Queue<GameObject> gatePool;
 
 
-    public int max;
+    public int maxBlock;
+    public int maxGate;
 
+    /// <summary>
+    /// set up block and gate pools
+    /// </summary>
     private void Awake()
     {
+        ready = false;
         redPref = Resources.Load<GameObject>("prefabs/RedCube");
-        bluePref = Resources.Load<GameObject>("prefabs/BlueCube");
-        yellowPref = Resources.Load<GameObject>("prefabs/YellowCube");
         gatePref = Resources.Load<GameObject>("prefabs/Gate");
+
+        blockPool = new Queue<GameObject>();
+        gatePool = new Queue<GameObject>();
 
         GameObject gate;
         GameObject red;
-        GameObject blue;
-        GameObject yellow;
-
-        for (int i = 0; i <= max; i++) {
+       
+        for (int i = 0; i <= maxBlock; i++) {
             red =Instantiate(redPref,Vector3.zero, Quaternion.identity);
+            blockPool.Enqueue(red);
             red.SetActive(false);
-            redPool.Add(red);
-
-            blue = Instantiate(bluePref, Vector3.zero, Quaternion.identity);
-            blue.SetActive(false);
-            bluePool.Add(red);
-
-            yellow= Instantiate(yellowPref, Vector3.zero, Quaternion.identity);
-            yellow.SetActive(false);
-            yellowPool.Add(yellow);
-
-            gate = Instantiate(gatePref, Vector3.zero, Quaternion.identity);
-            gate.SetActive(false);
-            gatePool.Add(red);
 
         }
+        for (int i = 0; i <= maxGate; i++)
+        {
+            gate = Instantiate(gatePref, Vector3.zero, Quaternion.identity);
+            gatePool.Enqueue(gate);
+            gate.SetActive(false);
+
+        }
+        ready = true;
 
     }
 
-    public void Deactivate(GameObject obj) {
-        obj.SetActive(false);
-    
+    /// <summary>
+    /// activate gate
+    /// </summary>
+    /// <param name="position">where to place gate</param>
+    public void ActivateGate( Transform position) {
+        if (!gatePool.Peek().activeInHierarchy) {
+            GameObject obj = gatePool.Dequeue();
+            obj.transform.position = position.position;
+            obj.transform.rotation = position.rotation;
+            obj.SetActive(true);
+            gatePool.Enqueue(obj);
+
+        }
     }
 
-    public void Activate(GameObject obj,Transform position) {
-        obj.transform.position = position.position;
-        obj.SetActive(true);
-    
+    /// <summary>
+    /// activate block
+    /// </summary>
+    /// <param name="color">color and tag to give block</param>
+    /// <param name="position">where to place block</param>
+    public void ActivateBlock(string color, Transform position)
+    {
+        if (!blockPool.Peek().activeInHierarchy)
+        {
+            GameObject obj = blockPool.Dequeue();
+            switch (color)
+            {
+                case "Red":
+                    obj.GetComponent<MeshRenderer>().material = redM;
+                    obj.tag = color;
+                    obj.transform.position = position.position;
+                    obj.transform.rotation = position.rotation;
+                    obj.SetActive(true);
+                    break;
+                case "Blue":
+                    obj.GetComponent<MeshRenderer>().material = blueM;
+                    obj.tag = color;
+                    obj.transform.position = position.position;
+                    obj.transform.rotation = position.rotation;
+                    obj.SetActive(true);
+
+                    break;
+                case "Yellow":
+                    obj.GetComponent<MeshRenderer>().material = yellowM;
+                    obj.tag = color;
+                    obj.transform.position = position.position;
+                    obj.transform.rotation = position.rotation;
+                    obj.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+            blockPool.Enqueue(obj);
+
+        }
     }
+
 
 }

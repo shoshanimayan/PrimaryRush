@@ -274,7 +274,7 @@ public class Player : MonoBehaviour
             {
                 Die();
             }
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
         else {
                 AddCombo();

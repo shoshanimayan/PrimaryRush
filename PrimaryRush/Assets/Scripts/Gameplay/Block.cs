@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    Rigidbody rigidbody;
+    Rigidbody rb;
     
     protected GameHandler info { get { return GameHandler.Instance; } }
     // Start is called before the first frame update
     void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -21,11 +21,11 @@ public class Block : MonoBehaviour
         {
             if (!info.slowed)
             {
-                rigidbody.velocity = transform.forward * info.topSpeed;
+                rb.velocity = transform.forward * info.topSpeed;
             }
             else
             {
-                rigidbody.velocity = transform.forward * info.slowSpeed;
+                rb.velocity = transform.forward * info.slowSpeed;
 
             }
             if (transform.position.z <= 0)
