@@ -1,21 +1,45 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 //todo
 //generate at 5 spots
 //create generation algorithm
 public class Generator : MonoBehaviour
 {
+    [Header("spawn positions")]
     public GameObject[] spawnSpot;
+
+    /// <summary>
+    /// variable references for block type to select, block pool, and gate spanwing variables  
+    /// </summary>
     private string[] blocks;
     private PoolManager pool;
     private bool gateReady;
 
     private GameHandler info { get { return GameHandler.Instance; } }
 
-    //time based multiplier to determine spawn rate
+    //time based multipliers to determine spawn rate
     private float spawnTimer = 0;
     private float gateTimer = 0;
+
+    void Awake()
+    {
+        gateReady = false;
+        pool = GetComponent<PoolManager>();
+        gateTimer = 10f;
+        spawnTimer = 0;
+        blocks = new string[] { "Red", "Yellow", "Blue" };
+
+    }
+
+    private void Start()
+    {
+        CountdownBlock(spawnTimer);
+        CountdownGate(gateTimer);
+    }
+
 
     /// <summary>
     /// spawns amount of gates in different lanes, at minimum one open lane
@@ -29,7 +53,7 @@ public class Generator : MonoBehaviour
     {
         while (amount > 0)
         {
-            int x = Random.Range(0, 5);
+            int x = UnityEngine.Random.Range(0, 5);
             if (!taken.Contains(x))
             {
                 taken.Add(x);
@@ -37,7 +61,7 @@ public class Generator : MonoBehaviour
                 amount--;
             }
         }
-        gateTimer = Random.Range(5f,15.1f);
+        gateTimer = UnityEngine.Random.Range(5f,15.1f);
         return taken;
     }
 
@@ -53,7 +77,7 @@ public class Generator : MonoBehaviour
         if (amount == 5)
         {
             amount--;
-           int x = Random.Range(0, 5);
+           int x = UnityEngine.Random.Range(0, 5);
             int mustHave=0;
             switch (info.color) {
                 case ColorType.Red:
@@ -70,11 +94,11 @@ public class Generator : MonoBehaviour
             pool.ActivateBlock(blocks[mustHave], spawnSpot[x].transform);
             while (amount > 0)
             {
-                x = Random.Range(0, 5);
+                x = UnityEngine.Random.Range(0, 5);
                 if (!taken.Contains(x))
                 {
                     taken.Add(x);
-                    pool.ActivateBlock(blocks[Random.Range(0, 3)], spawnSpot[x].transform);
+                    pool.ActivateBlock(blocks[UnityEngine.Random.Range(0, 3)], spawnSpot[x].transform);
                     amount--;
                 }
             }
@@ -86,15 +110,15 @@ public class Generator : MonoBehaviour
                 int x = 1;
                 taken = SpawnGate(x, taken);
                 gateReady = false;
-                StartCoroutine(CountdownGate(gateTimer));
+                CountdownGate(gateTimer);
             }
             while (amount > 0)
             {
-                int x = Random.Range(0, 5);
+                int x = UnityEngine.Random.Range(0, 5);
                 if (!taken.Contains(x))
                 {
                     taken.Add(x);
-                    pool.ActivateBlock(blocks[Random.Range(0, 3)], spawnSpot[x].transform);
+                    pool.ActivateBlock(blocks[UnityEngine.Random.Range(0, 3)], spawnSpot[x].transform);
                     amount--;
                 }
             }
@@ -116,58 +140,37 @@ public class Generator : MonoBehaviour
         {
             spawnTimer = .5f;
         }
-        StartCoroutine(CountdownBlock(spawnTimer));
+        CountdownBlock(spawnTimer);
 
     }
+    
 
-
-    // Start is called before the first frame update
-    void Awake()
+    //async function to initiate block spawning functionality
+    private async Task CountdownBlock(float seconds)
     {
-        gateReady = false;
-        pool = GetComponent<PoolManager>();
-        gateTimer = 10f;
-        spawnTimer = 0;
-        blocks = new string[] { "Red","Yellow","Blue"};
-
-    }
-
-    IEnumerator CountdownBlock(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
+        await Task.Delay(TimeSpan.FromSeconds(seconds));
         if (info.alive && pool.ready)
         {
-           
-                if (info.score <= 10)
-                    SpawnBlocks(Random.Range(1, 6));
-                else if (info.score > 10 && info.score <= 20)
-                    SpawnBlocks(Random.Range(2, 6));
-                else if (info.score > 20 && info.score <= 30)
-                    SpawnBlocks(Random.Range(3, 6));
-                else
-                    SpawnBlocks(Random.Range(1, 6));
-
-            
-
-
-
+            if (info.score <= 10)
+                SpawnBlocks(UnityEngine.Random.Range(1, 6));
+            else if (info.score > 10 && info.score <= 20)
+                SpawnBlocks(UnityEngine.Random.Range(2, 6));
+            else if (info.score > 20 && info.score <= 30)
+                SpawnBlocks(UnityEngine.Random.Range(3, 6));
+            else
+                SpawnBlocks(UnityEngine.Random.Range(1, 6));
         }
 
     }
 
-    IEnumerator CountdownGate(float seconds)
+    //async function to initiate gate spawning functionality
+
+    private async Task CountdownGate(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
+        await Task.Delay(TimeSpan.FromSeconds(seconds));
         gateReady = true;
-
     }
 
-    private void Start()
-    {
-        StartCoroutine(CountdownBlock(spawnTimer));
-        StartCoroutine(CountdownGate(gateTimer));
-    }
 
-    // Update is called once per frame
- 
+
 }
