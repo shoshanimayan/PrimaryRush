@@ -1,13 +1,20 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEditor.AddressableAssets.Settings;
+using UnityEditor.AddressableAssets;
 
 public class PoolManager : MonoBehaviour
 {
-    private GameObject redPref;
-    private GameObject gatePref;
+    public AssetReferenceGameObject blockRef;
+    public AssetReferenceGameObject GateRef;
+
+    private AsyncOperationHandle<GameObject> _asyncOperationHandleBlock;
+    private AsyncOperationHandle<GameObject> _asyncOperationHandleGate;
 
 
     public Material redM;
@@ -28,31 +35,57 @@ public class PoolManager : MonoBehaviour
     private void Awake()
     {
         ready = false;
-        redPref = Resources.Load<GameObject>("prefabs/RedCube");
-        gatePref = Resources.Load<GameObject>("prefabs/Gate");
-
-        blockPool = new Queue<GameObject>();
-        gatePool = new Queue<GameObject>();
-
-        GameObject gate;
-        GameObject red;
-       
-        for (int i = 0; i <= maxBlock; i++) {
-            red =Instantiate(redPref,Vector3.zero, Quaternion.identity);
-            blockPool.Enqueue(red);
-            red.SetActive(false);
-
-        }
-        for (int i = 0; i <= maxGate; i++)
+        var _asyncOperationHandleBlock = blockRef.LoadAssetAsync<GameObject>();
+        var _asyncOperationHandleGate = GateRef.LoadAssetAsync<GameObject>();
+        bool hasSpawnedBlocks = _asyncOperationHandleBlock.IsValid();
+        bool hasSpawnedGates = _asyncOperationHandleGate.IsValid();
+        if (hasSpawnedBlocks)
         {
-            gate = Instantiate(gatePref, Vector3.zero, Quaternion.identity);
-            gatePool.Enqueue(gate);
-            gate.SetActive(false);
+            _asyncOperationHandleBlock.Completed += handle =>
+            {
+                blockPool = new Queue<GameObject>();
+                PoolObject(handle, ref blockPool, maxBlock);
+                ready = true;
 
+            };
         }
-        ready = true;
+        else{
+            throw new Exception("Invalid Block");
+            ready = false;
+        }
+        if (hasSpawnedGates)
+        {
+            _asyncOperationHandleGate.Completed += handle2 =>
+            {
+                gatePool = new Queue<GameObject>();
+                PoolObject(handle2, ref gatePool, maxGate);
+
+            };
+        }
+        else
+        {
+            throw new Exception("Invalid Gate");
+            ready = false;
+        }
+
 
     }
+
+    private  void PoolObject(AsyncOperationHandle<GameObject> loaded, ref Queue<GameObject> pool, int max) {
+        GameObject pref = loaded.Result;
+        pool = new Queue<GameObject>();
+        GameObject temp;
+
+        for (int i = 0; i < max; i++)
+        {
+            temp = Instantiate(pref, Vector3.zero, Quaternion.identity);
+            pool.Enqueue(temp);
+            temp.SetActive(false);
+
+        }
+
+    }
+
 
     /// <summary>
     /// activate gate

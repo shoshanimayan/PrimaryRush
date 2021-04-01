@@ -1350,12 +1350,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a807b30659b57c146a85122791da146c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockRef:
+    m_AssetGUID: daffbaf96582b8046946975b051b748a
+    m_SubObjectName: 
+    m_SubObjectType: 
+  GateRef:
+    m_AssetGUID: 6bc7bea823f9c6247a6d59ccf2bb006d
+    m_SubObjectName: 
+    m_SubObjectType: 
   redM: {fileID: 2100000, guid: 52c3625d0eed7cd4eb651014a685fa95, type: 2}
   blueM: {fileID: 2100000, guid: 7b0f7048fb2cdd541b7a202a031e878e, type: 2}
   yellowM: {fileID: 2100000, guid: 0e4a5a6f9be74a941adb85e877b27eb6, type: 2}
   ready: 0
-  maxBlock: 100
-  maxGate: 25
+  maxBlock: 50
+  maxGate: 10
 --- !u!1 &1185809677 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8470045053010906745, guid: 9fbe7d5b9dc4cc44eb4e5f94c19b5f8d,
@@ -6726,7 +6734,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   combo: 0
-  timer: 0
   speed: 10
   comboUI: {fileID: 731475356}
   particle: {fileID: 1347200534}

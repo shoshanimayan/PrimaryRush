@@ -5,21 +5,240 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637483529370333707
-    m_Hash: 3862270165
+      ticks: 637528522540426636
+    m_Hash: 508340962
   m_LockFileStatus:
     m_FilePath: C:/Users/Shosh/Desktop/PrimaryRush/PrimaryRush/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637483529565495804
-    m_Hash: 507224284
+      ticks: 637528522548042185
+    m_Hash: 1192797271
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
   m_Packages:
     m_ResolvedPackages:
+    - packageId: com.unity.addressables@1.16.16
+      testable: 0
+      isDirectDependency: 1
+      version: 1.16.16
+      source: 1
+      resolvedPath: C:\Users\Shosh\Desktop\PrimaryRush\PrimaryRush\Library\PackageCache\com.unity.addressables@1.16.16
+      assetPath: Packages/com.unity.addressables
+      name: com.unity.addressables
+      displayName: Addressables
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: 'The Addressable Asset System allows the developer to ask for
+        an asset via its address. Once an asset (e.g. a prefab) is marked "addressable",
+        it generates an address which can be called from anywhere. Wherever the asset
+        resides (local or remote), the system will locate it and its dependencies,
+        then return it.
+
+
+        Use ''Window->Asset Management->Addressables''
+        to begin working with the system.
+
+
+        Addressables use asynchronous
+        loading to support loading from any location with any collection of dependencies.
+        Whether you have been using direct references, traditional asset bundles,
+        or Resource folders, addressables provide a simpler way to make your game
+        more dynamic. Addressables simultaneously opens up the world of asset bundles
+        while managing all the complexity.
+
+
+        For usage samples, see github.com/Unity-Technologies/Addressables-Sample'
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.0.8-preview
+        - 0.0.12-preview
+        - 0.0.15-preview
+        - 0.0.16-preview
+        - 0.0.18-preview
+        - 0.0.22-preview
+        - 0.0.26-preview
+        - 0.0.27-preview
+        - 0.1.2-preview
+        - 0.2.1-preview
+        - 0.2.2-preview
+        - 0.3.5-preview
+        - 0.4.6-preview
+        - 0.4.8-preview
+        - 0.5.2-preview
+        - 0.5.3-preview
+        - 0.6.6-preview
+        - 0.6.7-preview
+        - 0.6.8-preview
+        - 0.7.4-preview
+        - 0.7.5-preview
+        - 0.8.4-preview
+        - 0.8.6-preview
+        - 1.1.3-preview
+        - 1.1.4-preview
+        - 1.1.5
+        - 1.1.7
+        - 1.1.9
+        - 1.1.10
+        - 1.2.2
+        - 1.2.3
+        - 1.2.4
+        - 1.3.3
+        - 1.3.8
+        - 1.4.0
+        - 1.5.0
+        - 1.5.1
+        - 1.6.0
+        - 1.6.2
+        - 1.7.4
+        - 1.7.5
+        - 1.8.3
+        - 1.8.4
+        - 1.8.5
+        - 1.9.2
+        - 1.10.0
+        - 1.11.2
+        - 1.12.0
+        - 1.13.1
+        - 1.14.2
+        - 1.15.1
+        - 1.16.1
+        - 1.16.6
+        - 1.16.7
+        - 1.16.8
+        - 1.16.10
+        - 1.16.12
+        - 1.16.13
+        - 1.16.15
+        - 1.16.16
+        - 1.17.0-preview
+        - 1.17.2-preview
+        - 1.17.4-preview
+        - 1.17.5-preview
+        - 1.17.6-preview
+        - 1.17.13
+        - 1.17.15
+        compatible:
+        - 0.0.8-preview
+        - 0.0.12-preview
+        - 0.0.15-preview
+        - 0.0.16-preview
+        - 0.0.18-preview
+        - 0.0.22-preview
+        - 0.0.26-preview
+        - 0.0.27-preview
+        - 0.1.2-preview
+        - 0.2.1-preview
+        - 0.2.2-preview
+        - 0.3.5-preview
+        - 0.4.6-preview
+        - 0.4.8-preview
+        - 0.5.2-preview
+        - 0.5.3-preview
+        - 0.6.6-preview
+        - 0.6.7-preview
+        - 0.6.8-preview
+        - 0.7.4-preview
+        - 0.7.5-preview
+        - 0.8.4-preview
+        - 0.8.6-preview
+        - 1.1.3-preview
+        - 1.1.4-preview
+        - 1.1.5
+        - 1.1.7
+        - 1.1.9
+        - 1.1.10
+        - 1.2.2
+        - 1.2.3
+        - 1.2.4
+        - 1.3.3
+        - 1.3.8
+        - 1.4.0
+        - 1.5.0
+        - 1.5.1
+        - 1.6.0
+        - 1.6.2
+        - 1.7.4
+        - 1.7.5
+        - 1.8.3
+        - 1.8.4
+        - 1.8.5
+        - 1.9.2
+        - 1.10.0
+        - 1.11.2
+        - 1.12.0
+        - 1.13.1
+        - 1.14.2
+        - 1.15.1
+        - 1.16.1
+        - 1.16.6
+        - 1.16.7
+        - 1.16.8
+        - 1.16.10
+        - 1.16.12
+        - 1.16.13
+        - 1.16.15
+        - 1.16.16
+        - 1.17.0-preview
+        - 1.17.2-preview
+        - 1.17.4-preview
+        - 1.17.5-preview
+        - 1.17.6-preview
+        - 1.17.13
+        - 1.17.15
+        verified: 1.16.16
+      dependencies:
+      - name: com.unity.scriptablebuildpipeline
+        version: 1.15.2
+      - name: com.unity.modules.assetbundle
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequest
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequestassetbundle
+        version: 1.0.0
+      resolvedDependencies:
+      - name: com.unity.scriptablebuildpipeline
+        version: 1.15.2
+      - name: com.unity.modules.assetbundle
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequest
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequestassetbundle
+        version: 1.0.0
+      keywords:
+      - asset
+      - resources
+      - bundle
+      - bundles
+      - assetbundles
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637473059570000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/Addressables.git
+        revision: c238142d6dd78f465fa645cb6b4671ab3472ec99
+        path: 
     - packageId: com.unity.collab-proxy@1.3.9
       testable: 0
       isDirectDependency: 1
@@ -231,6 +450,8 @@ m_PackageAssets:
         - 3.0.1
         - 3.0.2
         - 3.0.3
+        - 3.0.4
+        - 3.0.5
         compatible:
         - 1.0.2
         - 1.0.6
@@ -253,6 +474,8 @@ m_PackageAssets:
         - 3.0.1
         - 3.0.2
         - 3.0.3
+        - 3.0.4
+        - 3.0.5
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -320,6 +543,7 @@ m_PackageAssets:
         - 2.0.2
         - 2.0.3
         - 2.0.5
+        - 2.0.7
         compatible:
         - 1.0.2
         - 1.0.3
@@ -332,7 +556,8 @@ m_PackageAssets:
         - 2.0.2
         - 2.0.3
         - 2.0.5
-        verified: 2.0.5
+        - 2.0.7
+        verified: 2.0.7
       dependencies: []
       resolvedDependencies: []
       keywords: []
@@ -465,6 +690,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -479,6 +705,8 @@ m_PackageAssets:
         - 10.2.1
         - 10.2.2
         - 10.3.1
+        - 10.3.2
+        - 10.4.0
         compatible:
         - 10.2.2
         verified: 10.2.2
@@ -578,10 +806,12 @@ m_PackageAssets:
         - 1.1.19
         - 1.1.20
         - 1.1.22
+        - 1.1.24
         compatible:
         - 1.1.20
         - 1.1.22
-        verified: 1.1.22
+        - 1.1.24
+        verified: 1.1.24
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.6
@@ -694,6 +924,7 @@ m_PackageAssets:
         - 1.5.0
         - 1.5.1
         - 1.5.3
+        - 1.5.4
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.1
@@ -712,6 +943,7 @@ m_PackageAssets:
         - 2.1.0
         - 2.1.1
         - 2.1.3
+        - 2.1.4
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -726,10 +958,12 @@ m_PackageAssets:
         - 3.0.0
         - 3.0.1
         - 3.0.3
+        - 3.0.4
         compatible:
         - 3.0.1
         - 3.0.3
-        verified: 3.0.3
+        - 3.0.4
+        verified: 3.0.4
       dependencies:
       - name: com.unity.ugui
         version: 1.0.0
@@ -831,6 +1065,7 @@ m_PackageAssets:
         - 1.4.4
         - 1.4.5
         - 1.4.6
+        - 1.4.7
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -841,7 +1076,9 @@ m_PackageAssets:
         - 1.5.1-pre.2
         - 1.5.1-pre.3
         - 1.5.2
+        - 1.5.4
         - 1.6.0-pre.1
+        - 1.6.0-pre.3
         compatible:
         - 1.2.6
         - 1.2.7
@@ -881,6 +1118,7 @@ m_PackageAssets:
         - 1.4.4
         - 1.4.5
         - 1.4.6
+        - 1.4.7
         - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
@@ -891,8 +1129,10 @@ m_PackageAssets:
         - 1.5.1-pre.2
         - 1.5.1-pre.3
         - 1.5.2
+        - 1.5.4
         - 1.6.0-pre.1
-        verified: 1.4.6
+        - 1.6.0-pre.3
+        verified: 1.4.7
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -2957,6 +3197,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -2972,6 +3213,8 @@ m_PackageAssets:
         - 10.2.1
         - 10.2.2
         - 10.3.1
+        - 10.3.2
+        - 10.4.0
         compatible:
         - 10.2.2
         verified: 10.2.2
@@ -3099,6 +3342,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3113,6 +3357,8 @@ m_PackageAssets:
         - 10.2.1
         - 10.2.2
         - 10.3.1
+        - 10.3.2
+        - 10.4.0
         compatible:
         - 10.2.2
         verified: 10.2.2
@@ -3153,6 +3399,142 @@ m_PackageAssets:
         url: git+https://github.com/Unity-Technologies/Graphics.git
         revision: a197e35ba4e93349ccbb4fddd4f3f80ba7b1c113
         path: 
+    - packageId: com.unity.scriptablebuildpipeline@1.15.2
+      testable: 0
+      isDirectDependency: 0
+      version: 1.15.2
+      source: 1
+      resolvedPath: C:\Users\Shosh\Desktop\PrimaryRush\PrimaryRush\Library\PackageCache\com.unity.scriptablebuildpipeline@1.15.2
+      assetPath: Packages/com.unity.scriptablebuildpipeline
+      name: com.unity.scriptablebuildpipeline
+      displayName: Scriptable Build Pipeline
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: The Scriptable Build Pipeline moves the asset bundle build pipeline
+        to C#.  Use the pre-defined build flows, or create your own using the divided
+        up APIs.  This system improves build time, fixes incremental build, and provides
+        greater flexibility.
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.0.5-preview
+        - 0.0.6-preview
+        - 0.0.8-preview
+        - 0.0.9-preview
+        - 0.0.10-preview
+        - 0.0.14-preview
+        - 0.0.15-preview
+        - 0.1.0-preview
+        - 0.2.0-preview
+        - 1.0.1-preview
+        - 1.1.0-preview
+        - 1.1.1-preview
+        - 1.2.1-preview
+        - 1.3.5-preview
+        - 1.4.1-preview
+        - 1.5.0-preview
+        - 1.5.1
+        - 1.5.2
+        - 1.5.4
+        - 1.5.6
+        - 1.5.10
+        - 1.6.3-preview
+        - 1.6.4-preview
+        - 1.6.5-preview
+        - 1.7.2
+        - 1.7.3
+        - 1.8.2
+        - 1.8.4
+        - 1.8.6
+        - 1.9.0
+        - 1.10.0
+        - 1.11.1
+        - 1.11.2
+        - 1.12.0
+        - 1.13.1
+        - 1.14.0
+        - 1.14.1
+        - 1.15.1
+        - 1.15.2
+        - 1.16.1
+        - 1.17.0
+        compatible:
+        - 0.0.5-preview
+        - 0.0.6-preview
+        - 0.0.8-preview
+        - 0.0.9-preview
+        - 0.0.10-preview
+        - 0.0.14-preview
+        - 0.0.15-preview
+        - 0.1.0-preview
+        - 0.2.0-preview
+        - 1.0.1-preview
+        - 1.1.0-preview
+        - 1.1.1-preview
+        - 1.2.1-preview
+        - 1.3.5-preview
+        - 1.4.1-preview
+        - 1.5.0-preview
+        - 1.5.1
+        - 1.5.2
+        - 1.5.4
+        - 1.5.6
+        - 1.5.10
+        - 1.6.3-preview
+        - 1.6.4-preview
+        - 1.6.5-preview
+        - 1.7.2
+        - 1.7.3
+        - 1.8.2
+        - 1.8.4
+        - 1.8.6
+        - 1.9.0
+        - 1.10.0
+        - 1.11.1
+        - 1.11.2
+        - 1.12.0
+        - 1.13.1
+        - 1.14.0
+        - 1.14.1
+        - 1.15.1
+        - 1.15.2
+        - 1.16.1
+        - 1.17.0
+        verified: 1.14.1
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - build
+      - bundle
+      - bundles
+      - assetbundles
+      - cache
+      - server
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637473059170000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/Addressables.git
+        revision: c238142d6dd78f465fa645cb6b4671ab3472ec99
+        path: 
     - packageId: com.unity.searcher@4.3.1
       testable: 0
       isDirectDependency: 0
@@ -3185,6 +3567,7 @@ m_PackageAssets:
         - 4.2.0
         - 4.3.0
         - 4.3.1
+        - 4.3.2
         - 4.6.0-preview
         - 4.7.0-preview
         compatible:
@@ -3199,9 +3582,10 @@ m_PackageAssets:
         - 4.2.0
         - 4.3.0
         - 4.3.1
+        - 4.3.2
         - 4.6.0-preview
         - 4.7.0-preview
-        verified: 4.3.1
+        verified: 4.3.2
       dependencies: []
       resolvedDependencies: []
       keywords:

@@ -32,10 +32,12 @@ public class Generator : MonoBehaviour
         spawnTimer = 0;
         blocks = new string[] { "Red", "Yellow", "Blue" };
 
+
     }
 
-    private void Start()
+    private  void Start()
     {
+
         CountdownBlock(spawnTimer);
         CountdownGate(gateTimer);
     }
@@ -91,9 +93,12 @@ public class Generator : MonoBehaviour
                     break;
             }
             taken.Add(x);
+
+
             pool.ActivateBlock(blocks[mustHave], spawnSpot[x].transform);
             while (amount > 0)
             {
+
                 x = UnityEngine.Random.Range(0, 5);
                 if (!taken.Contains(x))
                 {
@@ -118,6 +123,7 @@ public class Generator : MonoBehaviour
                 if (!taken.Contains(x))
                 {
                     taken.Add(x);
+
                     pool.ActivateBlock(blocks[UnityEngine.Random.Range(0, 3)], spawnSpot[x].transform);
                     amount--;
                 }
@@ -148,6 +154,9 @@ public class Generator : MonoBehaviour
     //async function to initiate block spawning functionality
     private async Task CountdownBlock(float seconds)
     {
+
+        if (!pool.ready) { while (!pool.ready) await Task.Delay(1); };
+        
         await Task.Delay(TimeSpan.FromSeconds(seconds));
         if (info.alive && pool.ready)
         {
@@ -160,6 +169,10 @@ public class Generator : MonoBehaviour
             else
                 SpawnBlocks(UnityEngine.Random.Range(1, 6));
         }
+        else {
+        
+        }
+
 
     }
 
@@ -167,6 +180,8 @@ public class Generator : MonoBehaviour
 
     private async Task CountdownGate(float seconds)
     {
+        if (!pool.ready) { while (!pool.ready) await Task.Delay(1); };
+
         await Task.Delay(TimeSpan.FromSeconds(seconds));
         gateReady = true;
     }
