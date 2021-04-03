@@ -84,6 +84,7 @@ public class UIHandler : MonoBehaviour
 
     public void Reload()
     {
+        info.Restart();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
