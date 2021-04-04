@@ -19,8 +19,10 @@ public class BackgroundChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float t = Mathf.PingPong(Time.time, duration) / duration;
-        cam.backgroundColor = UnityEngine.Color.Lerp(color2,color1 , t);
-
+        if (GameHandler.flash)
+        {
+            float t = Mathf.PingPong(Time.time, duration) / duration;
+            cam.backgroundColor = UnityEngine.Color.Lerp(color2, color1, t);
+        }
     }
 }

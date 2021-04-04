@@ -17,6 +17,8 @@ public class GameHandler : Singleton<GameHandler>
     public bool alive;
     public ColorType color;
 
+    public static bool flash = true;
+
     private void Awake()
     {
         alive = true;

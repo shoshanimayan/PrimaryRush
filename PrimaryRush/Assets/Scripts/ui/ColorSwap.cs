@@ -40,15 +40,17 @@ public class ColorSwap : MonoBehaviour
 
     private void Update()
     {
-        if (Camera.main.backgroundColor == color1)
+        if (GameHandler.flash)
         {
-            color2 = color1;
+            if (Camera.main.backgroundColor == color1)
+            {
+                color2 = color1;
 
-        }
-        float t = Mathf.PingPong(Time.time, duration) / duration;
+            }
+            float t = Mathf.PingPong(Time.time, duration) / duration;
 
             Camera.main.backgroundColor = UnityEngine.Color.Lerp(color2, color1, t);
-        
+        }
         
 
     }

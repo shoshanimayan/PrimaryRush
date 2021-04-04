@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Navigation : MonoBehaviour
 {
+
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
@@ -28,4 +29,6 @@ public class Navigation : MonoBehaviour
         SceneManager.LoadScene("How");
 
     }
+
+    public void flashing() { GameHandler.flash = !GameHandler.flash; }
 }
