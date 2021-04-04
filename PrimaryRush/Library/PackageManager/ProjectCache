@@ -5,15 +5,15 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637528522540426636
-    m_Hash: 508340962
+      ticks: 637530896241552516
+    m_Hash: 818845526
   m_LockFileStatus:
     m_FilePath: C:/Users/Shosh/Desktop/PrimaryRush/PrimaryRush/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637528522548042185
+      ticks: 637530896343840384
     m_Hash: 1192797271
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}

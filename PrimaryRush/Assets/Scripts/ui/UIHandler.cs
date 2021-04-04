@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 //end menu ui
 public class UIHandler : MonoBehaviour
 {
+    [Header("ui elements")]
     public TMP_Text score;
     public Slider timeSlider;
     private GameHandler info { get { return GameHandler.Instance; } }
@@ -19,6 +20,8 @@ public class UIHandler : MonoBehaviour
     public GameObject endScreen;
     public TMP_Text highScore;
     public TMP_Text yourScore;
+
+
     private void Awake()
     {
         endScreen.SetActive(false);

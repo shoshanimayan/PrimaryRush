@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private UIHandler UI;
     public ParticleSystem particle;
     public GameObject ship;
+    public PostProcessingHandler post;
     //12.26
 
     private AudioSource AS;
@@ -125,6 +126,8 @@ public class Player : MonoBehaviour
                     if (info.speedbar > 0)
                     {
                         info.slowed = !info.slowed;
+          if (info.slowed) { post.Initiate(); }
+                else { post.End(); }
                     }
                 }
             
@@ -136,14 +139,22 @@ public class Player : MonoBehaviour
 #endif
 #if UNITY_EDITOR || UNITY_STANDALONE
         //slow down
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             if (info.speedbar > 0)
             {
-                info.slowed = !info.slowed;
-            }
-        
-        }
 
+                info.slowed = !info.slowed;
+                if (info.slowed) { post.Initiate(); }
+                else
+                {
+                    Debug.Log("end");
+                    post.End();
+
+                }
+
+            }
+        }
 
         //movement
         if (Input.GetMouseButton(0))
@@ -188,7 +199,10 @@ public class Player : MonoBehaviour
         if (info.speedbar <= 0)
         {
             if (info.slowed)
+            {
                 info.slowed = false;
+                post.End();
+            }
         }
         else
         {
