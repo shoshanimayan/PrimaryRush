@@ -50,7 +50,7 @@ public class UIHandler : MonoBehaviour
         else
         {
             PlayerPrefs.SetFloat("score", info.score);
-            highScore.text = "Congratualtions!";
+            highScore.text = "Congratulations!";
             yourScore.text = "New Personal Best of " + info.score.ToString();
         }
     }
