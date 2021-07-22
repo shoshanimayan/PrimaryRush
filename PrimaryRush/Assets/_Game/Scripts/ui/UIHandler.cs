@@ -36,7 +36,7 @@ public class UIHandler : MonoBehaviour
         {
             if (PlayerPrefs.GetFloat("score") < info.score)
             {
-                highScore.text = "Congratualtions!";
+                highScore.text = "Congratulations!";
                 yourScore.text = "New Personal Best of " + info.score.ToString();
                 PlayerPrefs.SetFloat("score", info.score);
 
@@ -69,24 +69,28 @@ public class UIHandler : MonoBehaviour
 
     public void Menu()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Select", GetComponent<Transform>().position); //Play UI Sound
         SceneManager.LoadScene("Menu");
 
     }
 
     public void Play()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Select", GetComponent<Transform>().position); //Play UI Sound
         SceneManager.LoadScene("Game");
 
     }
 
     public void Credits()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Select", GetComponent<Transform>().position); //Play UI Sound
         SceneManager.LoadScene("Credits");
 
     }
 
     public void Reload()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Select", GetComponent<Transform>().position); //Play UI Sound
         info.Restart();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

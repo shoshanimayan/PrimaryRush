@@ -1,5 +1,120 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7972775666645947416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Block_Breaking
+  m_EditorClassIdentifier: 
+  Path: event:/Block_Breaking
+  guid: 747c36ddf27dfe45bc7da3b5652e5c3b
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-6083812221105208899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Block_Breaking_02
+  m_EditorClassIdentifier: 
+  Path: event:/Block_Breaking_02
+  guid: ed999e2ddf7dbd448f8dbfee03cf6935
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-3481074514407656025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Death
+  m_EditorClassIdentifier: 
+  Path: event:/Death
+  guid: 58f27deb77b0af499f5a34466bb5271c
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-3003133170271901957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SlowMo_Noise
+  m_EditorClassIdentifier: 
+  Path: event:/SlowMo_Noise
+  guid: cc6359684e775e4a81117f25d2abd5fc
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-1978841652696699514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Block_Breaking_01
+  m_EditorClassIdentifier: 
+  Path: event:/Block_Breaking_01
+  guid: bb7bc9dd3e822d4e829346b3851646fa
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,17 +128,117 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 4890177048217062345}
-  - {fileID: 4253567005025692458}
+  - {fileID: 9219349191516948202}
+  - {fileID: 3481186151365876143}
   EditorEvents:
   - {fileID: 2837018471078892242}
+  - {fileID: 9114749028280710484}
+  - {fileID: 581627561412306149}
+  - {fileID: 2052011824247611073}
+  - {fileID: -3481074514407656025}
+  - {fileID: -1978841652696699514}
+  - {fileID: -3003133170271901957}
+  - {fileID: -6083812221105208899}
+  - {fileID: 2671579713238603733}
+  - {fileID: -7972775666645947416}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 4253567005025692458}
+  - {fileID: 3481186151365876143}
   StringsBanks:
-  - {fileID: 4890177048217062345}
-  stringsBankWriteTime: 637534288349451389
+  - {fileID: 9219349191516948202}
+  stringsBankWriteTime: 637624995217005158
   cacheVersion: 6
+--- !u!114 &581627561412306149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Block_Breaking_03
+  m_EditorClassIdentifier: 
+  Path: event:/Block_Breaking_03
+  guid: 2a7ab9cfeed3fd4b8c134cf9109b008d
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &993059153905654719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Block_Breaking_04
+  m_EditorClassIdentifier: 
+  Path: event:/Block_Breaking_04
+  guid: 747c36ddf27dfe45bc7da3b5652e5c3b
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &2052011824247611073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gate
+  m_EditorClassIdentifier: 
+  Path: event:/Gate
+  guid: 37870bf686191c4cba752e4fe20bd6b3
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &2671579713238603733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI_Select
+  m_EditorClassIdentifier: 
+  Path: event:/UI_Select
+  guid: f2e5c4cf6f130d41a9fa1983bbbf257a
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &2837018471078892242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,7 +254,7 @@ MonoBehaviour:
   Path: event:/My Heart Will Go On - Recorder By Candlelight by Matt Mulholland
   guid: 616b4d8af7e18640b1a0790efb4abce4
   Banks:
-  - {fileID: 4253567005025692458}
+  - {fileID: 3481186151365876143}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -47,6 +262,25 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &3481186151365876143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Main.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Soundbanks/Mobile/Main.bank
+  Name: Main
+  StudioPath: bank:/Main
+  lastModified: 637624995216965377
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &4253567005025692458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,4 +320,48 @@ MonoBehaviour:
   FileSizes:
   - Name: Mobile
     Value: 802
+  Exists: 1
+--- !u!114 &9114749028280710484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Block_Point_Gain
+  m_EditorClassIdentifier: 
+  Path: event:/Block_Point_Gain
+  guid: 058239d6f1719c4c8de22feb9646994c
+  Banks:
+  - {fileID: 3481186151365876143}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &9219349191516948202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Main.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Soundbanks/Mobile/Main.strings.bank
+  Name: Main.strings
+  StudioPath: bank:/Main.strings
+  lastModified: 637624995217005158
+  LoadResult: 0
+  FileSizes:
+  - Name: Mobile
+    Value: 1184
   Exists: 1
