@@ -9,17 +9,6 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-*_unity/sysinfo.txt
-*_unity/[Aa]ssets/AssetStoreTools*
-*_unity/[Ee]xported[Oo]bj/
-*_unity/[Ll]ibrary/
-*_unity/[Ll]ocal[Cc]ache/
-*_unity/[Ll]ogs/
-*_unity/[Oo]bj/
-*_unity/[Tt]emp/
-*_unity/[Uu]nityGenerated/
-*_unity/[Cc]odeCoverage/
-*_unity/[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
