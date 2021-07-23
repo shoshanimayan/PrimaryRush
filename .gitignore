@@ -70,7 +70,7 @@ Thumbs.db
 .DS_Store?
 .Spotlight-V100
 
-
+Temp/*
 PrimaryRush/fmod_editor.log
 PrimaryRush/fmod_editor.log
 PrimaryRush/Temp/UnityLockfile
