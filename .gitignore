@@ -69,10 +69,8 @@ Thumbs.db
 .DS_Store
 .DS_Store?
 .Spotlight-V100
-Library/Artifacts/
-Temp/
-PrimaryRush/Library/Artifacts/
-PrimaryRush/Temp/
+Library/Artifacts/*
+Temp/*
 PrimaryRush/fmod_editor.log
 PrimaryRush/fmod_editor.log
 PrimaryRush/Temp/UnityLockfile
