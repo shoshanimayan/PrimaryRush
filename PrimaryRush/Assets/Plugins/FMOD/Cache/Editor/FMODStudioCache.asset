@@ -14,6 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Block_Breaking
   guid: 747c36ddf27dfe45bc7da3b5652e5c3b
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-7673582151565200464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Block_Breaking_04
+  m_EditorClassIdentifier: 
+  Path: event:/Block_Breaking_04
+  guid: 747c36ddf27dfe45bc7da3b5652e5c3b
   Banks:
   - {fileID: 3481186151365876143}
   IsStream: 0
@@ -140,13 +162,13 @@ MonoBehaviour:
   - {fileID: -3003133170271901957}
   - {fileID: -6083812221105208899}
   - {fileID: 2671579713238603733}
-  - {fileID: -7972775666645947416}
+  - {fileID: -7673582151565200464}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3481186151365876143}
   StringsBanks:
   - {fileID: 9219349191516948202}
-  stringsBankWriteTime: 637624995217005158
+  stringsBankWriteTime: 637625885577113344
   cacheVersion: 6
 --- !u!114 &581627561412306149
 MonoBehaviour:
@@ -277,7 +299,7 @@ MonoBehaviour:
   Path: Assets/Soundbanks/Mobile/Main.bank
   Name: Main
   StudioPath: bank:/Main
-  lastModified: 637624995216965377
+  lastModified: 637625885577093676
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -359,9 +381,9 @@ MonoBehaviour:
   Path: Assets/Soundbanks/Mobile/Main.strings.bank
   Name: Main.strings
   StudioPath: bank:/Main.strings
-  lastModified: 637624995217005158
+  lastModified: 637625885577113344
   LoadResult: 0
   FileSizes:
   - Name: Mobile
-    Value: 1184
+    Value: 1174
   Exists: 1

@@ -1,20 +1,17 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEditor.AddressableAssets.Settings;
-using UnityEditor.AddressableAssets;
+
 
 public class PoolManager : MonoBehaviour
 {
     public AssetReferenceGameObject blockRef;
     public AssetReferenceGameObject GateRef;
 
-    private AsyncOperationHandle<GameObject> _asyncOperationHandleBlock;
-    private AsyncOperationHandle<GameObject> _asyncOperationHandleGate;
+
 
 
     public Material redM;
