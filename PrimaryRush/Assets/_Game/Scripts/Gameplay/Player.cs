@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     //12.26
 
     private AudioSource AS;
+   public  AudioSource AS2;
 
     //FMOD SFX Instances (For sounds that need to be dynamically handled)
     private FMOD.Studio.EventInstance PlaySlowMoSound;
@@ -244,6 +245,7 @@ public class Player : MonoBehaviour
     }
     
     private void Die() {
+        AS2.Stop();
         info.alive = false;
         particle.startColor = UnityEngine.Color.white;
         particle.Play();
