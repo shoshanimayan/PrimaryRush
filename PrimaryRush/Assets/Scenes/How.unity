@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 260336641}
   - component: {fileID: 260336640}
   - component: {fileID: 260336644}
+  - component: {fileID: 260336645}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -238,6 +239,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9586eef3f65bd114f86312dd25d1dfb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &260336645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260336639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbb637660e8a164889466df8d3bd196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1231759257}
 --- !u!1 &503702935
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,16 +762,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move by tapping thumb on left or right of screen
+  m_text: 'Move by tapping left or right on the screen
 
 
-    slow down time
-    by tapping on with both thumbs, tap again to speed up or let bar run out
+    slow down time by tapping
+    on with both thumbs, tap again to speed up or let the bar run out
 
 
-    hit
-    cubes in your color to rack up a combo, and then hit a white gate to turn that
-    combo into points, and refill your speed bar'
+    hit cubes
+    in your color to rack up a combo, and then hit a white gate to turn that combo
+    into points, and refill your speed bar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e6ae758878d4bd469b518a0ec350b54, type: 2}
   m_sharedMaterial: {fileID: 3639913276727055010, guid: 8e6ae758878d4bd469b518a0ec350b54,
@@ -785,7 +799,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.75
+  m_fontSize: 31.85
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
