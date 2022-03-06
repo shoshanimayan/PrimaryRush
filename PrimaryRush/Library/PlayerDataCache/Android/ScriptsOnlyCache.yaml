@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - BackgroundChange
     - Block
     - ColorSwap
+    - Gate
     - Generator
     - HideFill
     - Navigation
@@ -15,6 +16,17 @@ ScriptsOnlyBuild:
     - WorldCurver
     Unity.Addressables.Editor.dll:
     - UnityEditor.AddressableAssets.AddressableAssetSettingsDefaultObject
+    - UnityEditor.AddressableAssets.Build.DataBuilders.BuildScriptFastMode
+    - UnityEditor.AddressableAssets.Build.DataBuilders.BuildScriptPackedMode
+    - UnityEditor.AddressableAssets.Build.DataBuilders.BuildScriptPackedPlayMode
+    - UnityEditor.AddressableAssets.Build.DataBuilders.BuildScriptVirtualMode
+    - UnityEditor.AddressableAssets.GUI.AddressableAssetsWindow
+    - UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+    - UnityEditor.AddressableAssets.Settings.AddressableAssetGroupTemplate
+    - UnityEditor.AddressableAssets.Settings.AddressableAssetSettings
+    - UnityEditor.AddressableAssets.Settings.GroupSchemas.BundledAssetGroupSchema
+    - UnityEditor.AddressableAssets.Settings.GroupSchemas.ContentUpdateGroupSchema
+    - UnityEditor.AddressableAssets.Settings.GroupSchemas.PlayerDataGroupSchema
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton

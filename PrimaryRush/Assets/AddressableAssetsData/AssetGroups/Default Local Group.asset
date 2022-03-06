@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: d3c18902481027e41b01067015168918
   m_SerializeEntries:
   - m_GUID: daffbaf96582b8046946975b051b748a
-    m_Address: prefabs/RedCube
+    m_Address: RedCube
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_MainAsset: {fileID: 8755426882189894274, guid: daffbaf96582b8046946975b051b748a,
@@ -26,11 +26,13 @@ MonoBehaviour:
     m_TargetAsset: {fileID: 8755426882189894274, guid: daffbaf96582b8046946975b051b748a,
       type: 3}
   - m_GUID: 6bc7bea823f9c6247a6d59ccf2bb006d
-    m_Address: prefabs/Gate
+    m_Address: Gate
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_MainAsset: {fileID: 2469888301765227168, guid: 6bc7bea823f9c6247a6d59ccf2bb006d,
+      type: 3}
+    m_TargetAsset: {fileID: 2469888301765227168, guid: 6bc7bea823f9c6247a6d59ccf2bb006d,
+      type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a011ffb05c36fc74e83c08e2dbf30ea1, type: 2}
   m_SchemaSet:
