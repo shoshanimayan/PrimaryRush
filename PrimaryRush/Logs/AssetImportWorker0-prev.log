@@ -1,11 +1,19 @@
 Using pre-set license
 Built from '2020.2/release' branch; Version is '2020.2.2f1 (068178b99f32) revision 426360'; Using compiler version '192528614'; Build Type 'Release'
 <<<<<<< HEAD
+<<<<<<< HEAD
 OS: 'Windows 10 Home; OS build 19042.1110; Version 2009; 64bit' Language: 'en' Physical Memory: 16271 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
 D:\2020.2.2f1\Editor\Unity.exe
+=======
+OS: 'Windows 10 Home; OS build 19041.867; Version 2004; 64bit' Language: 'en' Physical Memory: 32593 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Users\Shosh\OneDrive\Documents\2020.2.2f1\Editor\Unity.exe
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 =======
 OS: 'Windows 10 Home; OS build 19041.867; Version 2004; 64bit' Language: 'en' Physical Memory: 32593 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
@@ -19,6 +27,7 @@ C:\Users\Shosh\OneDrive\Documents\2020.2.2f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
+<<<<<<< HEAD
 <<<<<<< HEAD
 D:/GitHub/PrimaryRush/PrimaryRush
 -logFile
@@ -54,6 +63,8 @@ Register platform support module: D:/2020.2.2f1/Editor/Data/PlaybackEngines/Wind
 Register platform support module: D:/2020.2.2f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Registered in 0.336153 seconds.
 =======
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 C:/Users/Shosh/Desktop/PrimaryRush/PrimaryRush
 -logFile
 Logs/AssetImportWorker0.log
@@ -87,13 +98,20 @@ Register platform support module: C:/Users/Shosh/OneDrive/Documents/2020.2.2f1/E
 Register platform support module: C:/Users/Shosh/OneDrive/Documents/2020.2.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Users/Shosh/OneDrive/Documents/2020.2.2f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Registered in 0.002384 seconds.
+<<<<<<< HEAD
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
+=======
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 <<<<<<< HEAD
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 60.88 ms, found 2 plugins.
+=======
+Refreshing native plugins compatible for Editor in 45.52 ms, found 0 plugins.
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 =======
 Refreshing native plugins compatible for Editor in 45.52 ms, found 0 plugins.
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
@@ -103,12 +121,15 @@ RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Completed reload, in  6.367 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
 Registered in 0.296860 seconds.
 Begin MonoManager ReloadAssembly
 =======
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 - Completed reload, in  1.158 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
@@ -1359,4 +1380,7 @@ Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3388.
 Total: 2.538500 ms (FindLiveObjects: 0.307800 ms CreateObjectMapping: 0.149000 ms MarkObjects: 2.056700 ms  DeleteObjects: 0.023600 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+<<<<<<< HEAD
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
+=======
 >>>>>>> parent of e26e0c86 (Implemented Sounds)

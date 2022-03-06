@@ -1,7 +1,11 @@
 Using pre-set license
 Built from '2020.2/release' branch; Version is '2020.2.2f1 (068178b99f32) revision 426360'; Using compiler version '192528614'; Build Type 'Release'
 <<<<<<< HEAD
+<<<<<<< HEAD
 OS: 'Windows 10 Home; OS build 19041.1110; Version 2004; 64bit' Language: 'en' Physical Memory: 32593 MB
+=======
+OS: 'Windows 10 Home; OS build 19042.867; Version 2009; 64bit' Language: 'en' Physical Memory: 16271 MB
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 =======
 OS: 'Windows 10 Home; OS build 19042.867; Version 2009; 64bit' Language: 'en' Physical Memory: 16271 MB
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
@@ -20,17 +24,23 @@ C:/Users/Shosh/Desktop/PrimaryRush/PrimaryRush
 Logs/AssetImportWorker0.log
 -srvPort
 <<<<<<< HEAD
+<<<<<<< HEAD
 61172
 Successfully changed project path to: C:/Users/Shosh/Desktop/PrimaryRush/PrimaryRush
 C:/Users/Shosh/Desktop/PrimaryRush/PrimaryRush
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 61.60 ms, found 2 plugins.
 =======
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 58304
 Successfully changed project path to: D:/GitHub/PrimaryRush/PrimaryRush
 D:/GitHub/PrimaryRush/PrimaryRush
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 131.20 ms, found 2 plugins.
+<<<<<<< HEAD
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
+=======
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.2f1 (068178b99f32)
@@ -72,6 +82,7 @@ Register platform support module: D:/2020.2.2f1/Editor/Data/PlaybackEngines/MacS
 Register platform support module: D:/2020.2.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: D:/2020.2.2f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
 Registered in 0.002837 seconds.
+<<<<<<< HEAD
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
@@ -171,10 +182,13 @@ Platform modules already initialized, skipping
 Registering precompiled user dll's ...
 Registered in 0.005266 seconds.
 Begin MonoManager ReloadAssembly
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 95.43 ms, found 2 plugins.
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -297,6 +311,9 @@ Symbol file data-000001FF8C3AE010 doesn't match image C:\Users\Shosh\Desktop\Pri
 Symbol file LoadedFromMemory is not a mono symbol file
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+=======
+Refreshing native plugins compatible for Editor in 101.39 ms, found 2 plugins.
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
@@ -304,7 +321,11 @@ RoslynAnalysisRunner has terminated.
 RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
 RefreshProfiler: Total: 0.000ms
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 - Completed reload, in  0.852 seconds
+=======
+- Completed reload, in  3.680 seconds
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
@@ -319,10 +340,20 @@ Total: 2.646100 ms (FindLiveObjects: 0.370100 ms CreateObjectMapping: 0.156000 m
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
+<<<<<<< HEAD
 Registered in 0.003113 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.82 ms, found 2 plugins.
+=======
+Registered in 0.005266 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 95.43 ms, found 2 plugins.
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
@@ -330,6 +361,7 @@ RoslynAnalysisRunner has terminated.
 RefreshInfo: StopAssetImportingV2(NoUpdateAssetOptions) scanfilter: 
 RefreshProfiler: Total: 0.000ms
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 - Completed reload, in  0.865 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
@@ -12999,6 +13031,21 @@ System memory in use after: 76.0 MB.
 Unloading 62 unused Assets to reduce memory usage. Loaded Objects now: 3462.
 Total: 2.915800 ms (FindLiveObjects: 0.310200 ms CreateObjectMapping: 0.147800 ms MarkObjects: 2.421900 ms  DeleteObjects: 0.034200 ms)
 =======
+=======
+- Completed reload, in  1.984 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 1.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 51 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 70.2 MB.
+System memory in use after: 70.4 MB.
+
+Unloading 67 unused Assets to reduce memory usage. Loaded Objects now: 3369.
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 Total: 6.480200 ms (FindLiveObjects: 0.643800 ms CreateObjectMapping: 0.663100 ms MarkObjects: 5.053200 ms  DeleteObjects: 0.118700 ms)
 
 ========================================================================
@@ -13053,6 +13100,9 @@ Received Import Request.
   artifactKey: Guid(1a4ec92eedee77a44af5df38ff9574c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Soundbanks/Mobile using Guid(1a4ec92eedee77a44af5df38ff9574c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '223b9a084ab0a040a26cea3aa024b55b') in 0.009489 seconds
   Import took 0.018459 seconds .
+<<<<<<< HEAD
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
+=======
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

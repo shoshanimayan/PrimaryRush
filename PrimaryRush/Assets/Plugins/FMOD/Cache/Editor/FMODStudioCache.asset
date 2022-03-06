@@ -1,6 +1,7 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &-7972775666645947416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,8 @@ MonoBehaviour:
   Length: 0
 =======
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +161,7 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 2837018471078892242}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 9114749028280710484}
   - {fileID: 581627561412306149}
   - {fileID: 2052011824247611073}
@@ -169,13 +173,20 @@ MonoBehaviour:
   - {fileID: -7673582151565200464}
 =======
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
   EditorParameters: []
   MasterBanks:
   - {fileID: 4253567005025692458}
   StringsBanks:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 9219349191516948202}
   stringsBankWriteTime: 637625885577113344
+=======
+  - {fileID: 4890177048217062345}
+  stringsBankWriteTime: 637534288349451389
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 =======
   - {fileID: 4890177048217062345}
   stringsBankWriteTime: 637534288349451389
@@ -205,6 +216,7 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &3481186151365876143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +236,8 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 =======
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
 --- !u!114 &4253567005025692458
@@ -266,6 +280,7 @@ MonoBehaviour:
   - Name: Mobile
     Value: 802
   Exists: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!114 &9114749028280710484
 MonoBehaviour:
@@ -311,5 +326,7 @@ MonoBehaviour:
   - Name: Mobile
     Value: 1174
   Exists: 1
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 =======
 >>>>>>> parent of e26e0c86 (Implemented Sounds)
