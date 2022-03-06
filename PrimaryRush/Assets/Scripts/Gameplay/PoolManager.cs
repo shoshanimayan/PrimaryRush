@@ -5,8 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEditor.AddressableAssets.Settings;
-using UnityEditor.AddressableAssets;
+
 
 public class PoolManager : MonoBehaviour
 {
