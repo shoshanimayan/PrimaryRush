@@ -32,9 +32,6 @@ public class Player : MonoBehaviour
     private AudioSource AS;
    public  AudioSource AS2;
 
-    //FMOD SFX Instances (For sounds that need to be dynamically handled)
-    private FMOD.Studio.EventInstance PlaySlowMoSound;
- 
     private GameHandler info { get { return GameHandler.Instance; } }
     // Start is called before the first frame update
     private void Awake()
@@ -50,8 +47,6 @@ public class Player : MonoBehaviour
         ScreenWidth = Screen.width;
         info.alive = true;
 
-        //FMOD Instance Initializations
-        PlaySlowMoSound = FMODUnity.RuntimeManager.CreateInstance("event:/SlowMo_Noise");
     }
 
     private void Start()
@@ -131,20 +126,11 @@ public class Player : MonoBehaviour
                     if (info.speedbar > 0)
                     {
                         info.slowed = !info.slowed;
-                        if (info.slowed) 
-                        { 
-                            post.Initiate();
-
-                            PlaySlowMoSound.start();//Play SlowMo Sound
-                        }
-                        else 
-                        { 
-                            post.End();
-
-                            PlaySlowMoSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); //Stop SlowMo Sound
-                        }
+          if (info.slowed) { post.Initiate(); }
+                else { post.End(); }
                     }
-                }  
+                }
+            
         }
         else
         {
@@ -159,18 +145,12 @@ public class Player : MonoBehaviour
             {
 
                 info.slowed = !info.slowed;
-                if (info.slowed) 
-                { 
-                    post.Initiate(); 
-
-                    PlaySlowMoSound.start(); //Play SlowMo Sound
-                }
+                if (info.slowed) { post.Initiate(); }
                 else
                 {
                     Debug.Log("end");
                     post.End();
 
-                    PlaySlowMoSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); //Stop SlowMo Sound
                 }
 
             }
@@ -222,8 +202,6 @@ public class Player : MonoBehaviour
             {
                 info.slowed = false;
                 post.End();
-
-                PlaySlowMoSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); //Stop SlowMo Sound
             }
         }
         else
@@ -251,8 +229,6 @@ public class Player : MonoBehaviour
         particle.Play();
         UI.EndUi();
         ship.SetActive(false);
-
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Death", GetComponent<Transform>().position); //Play Death Sound
     }
 
 
@@ -301,8 +277,6 @@ public class Player : MonoBehaviour
                 combo++;
                 UpdateComboUI();
                 particle.Play();
-
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Block_Breaking_01", GetComponent<Transform>().position); //Play Block Breaking Sound
             }
             else 
             {
@@ -317,9 +291,6 @@ public class Player : MonoBehaviour
                 combo = 0;
                 color = GetRandomEnum<ColorType>();
                 UpdateColor(color);
-
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Gate", GetComponent<Transform>().position);  //Play Gate Sound
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Block_Point_Gain", GetComponent<Transform>().position);  //Play Sound for gaining points 
         }
     }
 

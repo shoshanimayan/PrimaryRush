@@ -74,6 +74,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+<<<<<<< HEAD
 ehthumbs.db
 Thumbs.db
 
@@ -92,3 +93,5 @@ fmod_editor.log
 Temp/UnityLockfile
 Logs/
 PrimaryRush/Logs
+=======
+>>>>>>> parent of e26e0c86 (Implemented Sounds)

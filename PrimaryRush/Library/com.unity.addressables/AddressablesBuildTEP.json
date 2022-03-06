@@ -1,9 +1,17 @@
 {
+<<<<<<< HEAD
 "Date": "7/22/2021 11:12:32 PM",
+=======
+"Date": "4/3/2021 11:05:53 PM",
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 "UnityVersion": "2020.2.2f1",
 "com.unity.scriptablebuildpipeline": "1.15.2",
 "com.unity.addressables": "1.16.16",
 "traceEvents": [
+<<<<<<< HEAD
 {"name": "Building Use Asset Database (fastest)", "ph": "X", "dur": 885.8, "tid": 1, "ts": 6118, "pid": 1}
+=======
+{"name": "Building Use Asset Database (fastest)", "ph": "X", "dur": 1031.4, "tid": 1, "ts": 5787, "pid": 1}
+>>>>>>> parent of e26e0c86 (Implemented Sounds)
 ]
 }
